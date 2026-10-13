@@ -8,19 +8,20 @@
   * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,sans-serif; }
   body { background:#0d0d1a; color:#fff; min-height:100vh; }
   header {
-    background:linear-gradient(135deg,#ff4757,#c0392b);
+    background:linear-gradient(135deg,#00c853,#00a844);
     padding:15px 20px; display:flex; justify-content:space-between; align-items:center;
-    position:sticky; top:0; z-index:100; box-shadow:0 4px 15px rgba(255,71,87,.4);
+    position:sticky; top:0; z-index:100; box-shadow:0 4px 15px rgba(0,200,83,.4);
   }
-  .logo { font-size:22px; font-weight:bold; cursor:pointer; user-select:none; }
+  .logo { font-size:22px; font-weight:bold; cursor:pointer; user-select:none; display:flex; align-items:center; }
   .logo span { color:#ffd700; }
+  .logo img { max-height:45px; max-width:180px; object-fit:contain; }
   .user-area { display:flex; gap:10px; align-items:center; }
-  .btn-login { background:#fff; color:#c0392b; border:none; padding:8px 18px; border-radius:20px; font-weight:bold; cursor:pointer; font-size:14px; }
-  .user-icon { width:40px; height:40px; border-radius:50%; background:#fff; color:#c0392b; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; cursor:pointer; border:2px solid #ffd700; }
+  .btn-login { background:#fff; color:#00a844; border:none; padding:8px 18px; border-radius:20px; font-weight:bold; cursor:pointer; font-size:14px; }
+  .user-icon { width:40px; height:40px; border-radius:50%; background:#fff; color:#00a844; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; cursor:pointer; border:2px solid #ffd700; }
   main { padding:20px; max-width:1200px; margin:0 auto; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:15px; margin-top:20px; }
   .card { background:#1a1a2e; border-radius:12px; overflow:hidden; border:1px solid #2a2a4a; transition:.3s; cursor:pointer; }
-  .card:hover { transform:translateY(-5px); border-color:#ff4757; box-shadow:0 8px 20px rgba(255,71,87,.3); }
+  .card:hover { transform:translateY(-5px); border-color:#00c853; box-shadow:0 8px 20px rgba(0,200,83,.3); }
   .card img { width:100%; height:160px; object-fit:cover; background:#2a2a4a; }
   .card-icon { width:100%; height:160px; display:flex; align-items:center; justify-content:center; font-size:70px; background:linear-gradient(135deg,#2a2a4a,#1a1a2e); }
   .card-body { padding:12px; }
@@ -30,34 +31,34 @@
   .modal-bg { position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; justify-content:center; align-items:center; z-index:999; padding:15px; }
   .modal-bg.show { display:flex; }
   .modal { background:#1a1a2e; border-radius:15px; padding:25px; max-width:450px; width:100%; max-height:90vh; overflow-y:auto; border:1px solid #2a2a4a; }
-  .modal h2 { margin-bottom:15px; color:#ff4757; }
+  .modal h2 { margin-bottom:15px; color:#00c853; }
   .modal input, .modal textarea, .modal select { width:100%; padding:12px; background:#0d0d1a; border:1px solid #2a2a4a; border-radius:8px; color:#fff; margin-bottom:12px; font-size:14px; }
   .modal textarea { min-height:80px; resize:vertical; font-family:inherit; }
-  .modal .btn { width:100%; padding:12px; background:#ff4757; color:#fff; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:15px; margin-top:5px; }
-  .modal .btn:hover { background:#ff6b81; }
+  .modal .btn { width:100%; padding:12px; background:#00c853; color:#fff; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:15px; margin-top:5px; }
+  .modal .btn:hover { background:#00e676; }
   .modal .btn-secondary { background:#2a2a4a; }
   .modal .btn-secondary:hover { background:#3a3a5a; }
   .link-small { text-align:center; margin-top:12px; font-size:13px; }
   .link-small a { color:#ffd700; cursor:pointer; text-decoration:underline; }
   .panel-tabs { display:flex; gap:8px; margin-bottom:15px; flex-wrap:wrap; }
   .panel-tabs button { padding:8px 15px; background:#2a2a4a; color:#fff; border:none; border-radius:20px; cursor:pointer; font-size:13px; }
-  .panel-tabs button.active { background:#ff4757; }
-  .item-box { background:#0d0d1a; padding:12px; border-radius:8px; margin-bottom:10px; border-left:3px solid #ff4757; }
+  .panel-tabs button.active { background:#00c853; }
+  .item-box { background:#0d0d1a; padding:12px; border-radius:8px; margin-bottom:10px; border-left:3px solid #00c853; }
   .item-box h4 { font-size:14px; margin-bottom:5px; color:#ffd700; }
   .item-box p { font-size:13px; color:#aaa; }
-  .balance { background:linear-gradient(135deg,#ff4757,#c0392b); padding:20px; border-radius:12px; text-align:center; margin-bottom:15px; }
+  .balance { background:linear-gradient(135deg,#00c853,#00a844); padding:20px; border-radius:12px; text-align:center; margin-bottom:15px; }
   .balance .num { font-size:32px; font-weight:bold; color:#ffd700; }
   .admin-badge { background:#ffd700; color:#000; padding:4px 10px; border-radius:12px; font-size:12px; font-weight:bold; }
   .deposit-box { background:#0d0d1a; padding:15px; border-radius:10px; margin-bottom:15px; border:1px solid #2a2a4a; }
   .deposit-box .code { background:#1a1a2e; padding:10px; border-radius:6px; font-family:monospace; font-size:16px; color:#ffd700; margin:8px 0; word-break:break-all; text-align:center; }
-  .notif { position:fixed; top:80px; right:20px; background:#2ed573; color:#fff; padding:12px 20px; border-radius:8px; font-weight:bold; z-index:9999; animation:slideIn .3s; }
+  .notif { position:fixed; top:80px; right:20px; background:#00c853; color:#fff; padding:12px 20px; border-radius:8px; font-weight:bold; z-index:9999; animation:slideIn .3s; }
   .notif.error { background:#ff4757; }
   @keyframes slideIn { from { transform:translateX(400px); } to { transform:translateX(0); } }
   .empty { text-align:center; color:#666; padding:40px 20px; font-style:italic; }
   .detail-img { width:100%; max-height:250px; object-fit:cover; border-radius:10px; margin-bottom:15px; }
   .detail-desc { background:#0d0d1a; padding:12px; border-radius:8px; font-size:14px; color:#bbb; margin:12px 0; white-space:pre-wrap; }
   .img-preview { width:100%; max-height:200px; object-fit:contain; border-radius:8px; margin-bottom:10px; background:#0d0d1a; display:none; }
-  .upload-btn { background:#2a2a4a; color:#fff; padding:10px; border-radius:8px; text-align:center; cursor:pointer; margin-bottom:12px; font-size:14px; border:2px dashed #ff4757; }
+  .upload-btn { background:#2a2a4a; color:#fff; padding:10px; border-radius:8px; text-align:center; cursor:pointer; margin-bottom:12px; font-size:14px; border:2px dashed #00c853; }
   .upload-btn:hover { background:#3a3a5a; }
   .loading { text-align:center; color:#ffd700; font-size:13px; margin-bottom:10px; }
 </style>
@@ -79,9 +80,8 @@
 <div class="modal-bg" id="authModal">
   <div class="modal">
     <h2 id="authTitle">Đăng nhập</h2>
-    <input id="authEmail" type="email" placeholder="Gmail (email)">
+    <input id="authName" type="text" placeholder="Tên đăng nhập">
     <input id="authPass" type="password" placeholder="Mật khẩu">
-    <input id="authName" type="text" placeholder="Tên hiển thị" style="display:none">
     <button class="btn" id="authBtn" onclick="doAuth()">Đăng nhập</button>
     <div class="link-small">
       <a onclick="forgotPass()">Quên mật khẩu?</a> | 
@@ -119,7 +119,7 @@
       <button onclick="showAdminTab('products')" id="atabProducts">📦 SP</button>
       <button onclick="showAdminTab('users')" id="atabUsers">👥 User</button>
       <button onclick="showAdminTab('deposits')" id="atabDeposits">💳 Nạp</button>
-      <button onclick="showAdminTab('settings')" id="atabSettings">⚙️ Bank</button>
+      <button onclick="showAdminTab('settings')" id="atabSettings">⚙️ Cài đặt</button>
     </div>
     <div id="adminContent"></div>
     <button class="btn btn-secondary" onclick="closeModal('adminModal')" style="margin-top:15px">Đóng</button>
@@ -133,7 +133,6 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getDatabase, ref, set, get, push, update, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -147,26 +146,24 @@ const firebaseConfig = {
 };
 
 const IMGBB_KEY = "11fa26a3d2a300961577fa631bfc603c";
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getDatabase(app);
-
 const ADMIN_PASS = "phc51580";
 const ZALO_LINK = "https://zalo.me/0865561731";
 
-let currentUser = null;
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+let currentUser = null; // { name, ... }
 let isRegisterMode = false;
 let currentTab = 'wallet';
 let currentAdminTab = 'add';
 let userDataCache = {};
 let bankInfo = { bank: 'MBBank', stk: '0865561731', owner: 'PHUC', prefix: 'nap-phuc-' };
-let pendingImageUrl = '';
+let shopLogo = '';
 
-// Load bank info
-onValue(ref(db, 'settings/bank'), (snap) => {
-  if (snap.val()) bankInfo = snap.val();
-});
+// ============ SESSION (localStorage) ============
+function saveSession(name) { localStorage.setItem('shop_user', name); }
+function getSession() { return localStorage.getItem('shop_user'); }
+function clearSession() { localStorage.removeItem('shop_user'); }
 
 // ============ NOTIF ============
 window.notif = (msg, isError=false) => {
@@ -177,6 +174,22 @@ window.notif = (msg, isError=false) => {
   setTimeout(() => el.remove(), 2500);
 };
 
+// ============ LOAD SETTINGS ============
+onValue(ref(db, 'settings/bank'), (snap) => { if (snap.val()) bankInfo = snap.val(); });
+onValue(ref(db, 'settings/logo'), (snap) => {
+  shopLogo = snap.val() || '';
+  renderLogo();
+});
+
+function renderLogo() {
+  const el = document.getElementById('logo');
+  if (shopLogo) {
+    el.innerHTML = `<img src="${shopLogo}" alt="logo">`;
+  } else {
+    el.innerHTML = `🔥 SHOP ACC FF <span>CLONE</span>`;
+  }
+}
+
 // ============ AUTH ============
 window.showLogin = () => { isRegisterMode = false; updateAuthUI(); document.getElementById('authModal').classList.add('show'); };
 window.toggleAuth = () => { isRegisterMode = !isRegisterMode; updateAuthUI(); };
@@ -184,29 +197,64 @@ window.toggleAuth = () => { isRegisterMode = !isRegisterMode; updateAuthUI(); };
 function updateAuthUI() {
   document.getElementById('authTitle').textContent = isRegisterMode ? 'Đăng ký' : 'Đăng nhập';
   document.getElementById('authBtn').textContent = isRegisterMode ? 'Đăng ký' : 'Đăng nhập';
-  document.getElementById('authName').style.display = isRegisterMode ? 'block' : 'none';
   document.getElementById('switchAuth').textContent = isRegisterMode ? 'Đăng nhập' : 'Đăng ký';
 }
 
+function normalizeName(name) {
+  return name.trim().toLowerCase().replace(/[.#$/\[\]]/g, '_');
+}
+
 window.doAuth = async () => {
-  const email = document.getElementById('authEmail').value.trim();
-  const pass = document.getElementById('authPass').value;
   const name = document.getElementById('authName').value.trim();
-  if (!email || !pass) return window.notif('Nhập đủ email và mật khẩu', true);
-  if (isRegisterMode && !name) return window.notif('Nhập tên hiển thị', true);
-  if (pass.length < 6) return window.notif('Mật khẩu ít nhất 6 ký tự', true);
-  try {
-    if (isRegisterMode) {
-      const cred = await createUserWithEmailAndPassword(auth, email, pass);
-      await set(ref(db, 'users/' + cred.user.uid), { name, email, balance: 0, cart: [], history: [], createdAt: Date.now() });
-      window.notif('Đăng ký thành công!');
-    } else {
-      await signInWithEmailAndPassword(auth, email, pass);
-      window.notif('Đăng nhập thành công!');
-    }
-    closeModal('authModal');
-  } catch (e) { window.notif(e.message, true); }
+  const pass = document.getElementById('authPass').value;
+  if (!name || !pass) return window.notif('Nhập đủ tên và mật khẩu', true);
+  if (pass.length < 4) return window.notif('Mật khẩu ít nhất 4 ký tự', true);
+  
+  const key = normalizeName(name);
+  const snap = await get(ref(db, 'users/' + key));
+  const existing = snap.val();
+  
+  if (isRegisterMode) {
+    if (existing) return window.notif('Tên đã tồn tại! Chọn tên khác.', true);
+    await set(ref(db, 'users/' + key), {
+      name, pass, balance: 0, cart: [], history: [], createdAt: Date.now()
+    });
+    window.notif('Đăng ký thành công!');
+  } else {
+    if (!existing) return window.notif('Tên không tồn tại!', true);
+    if (existing.pass !== pass) return window.notif('Sai mật khẩu!', true);
+    window.notif('Đăng nhập thành công!');
+  }
+  
+  saveSession(key);
+  await loadCurrentUser();
+  closeModal('authModal');
+  document.getElementById('authName').value = '';
+  document.getElementById('authPass').value = '';
 };
+
+async function loadCurrentUser() {
+  const key = getSession();
+  if (!key) { currentUser = null; renderUserArea(); loadProducts(); return; }
+  const snap = await get(ref(db, 'users/' + key));
+  const data = snap.val();
+  if (!data) { clearSession(); currentUser = null; renderUserArea(); loadProducts(); return; }
+  currentUser = { key, ...data };
+  userDataCache = data;
+  renderUserArea();
+  loadProducts();
+}
+
+function renderUserArea() {
+  const area = document.getElementById('userArea');
+  if (currentUser) {
+    const isAdmin = currentUser.isAdmin === true;
+    const name = currentUser.name || currentUser.key;
+    area.innerHTML = `${isAdmin ? '<span class="admin-badge">ADMIN</span>' : ''}<div class="user-icon" onclick="openUserPanel()">${name.charAt(0).toUpperCase()}</div>`;
+  } else {
+    area.innerHTML = `<button class="btn-login" onclick="showLogin()">Đăng nhập</button>`;
+  }
+}
 
 window.forgotPass = () => {
   if (confirm('Quên mật khẩu?\nBạn sẽ được dẫn đến Zalo để liên hệ admin lấy lại.')) {
@@ -214,29 +262,14 @@ window.forgotPass = () => {
   }
 };
 
-window.logout = async () => { await signOut(auth); closeModal('userModal'); window.notif('Đã đăng xuất'); };
+window.logout = () => { clearSession(); currentUser = null; userDataCache = {}; renderUserArea(); closeModal('userModal'); window.notif('Đã đăng xuất'); };
 window.closeModal = (id) => document.getElementById(id).classList.remove('show');
 
-// ============ AUTH STATE ============
-onAuthStateChanged(auth, async (user) => {
-  currentUser = user;
-  const area = document.getElementById('userArea');
-  if (user) {
-    const snap = await get(ref(db, 'users/' + user.uid));
-    const data = snap.val() || {};
-    userDataCache = data;
-    const name = data.name || user.email;
-    const isAdmin = data.isAdmin === true;
-    area.innerHTML = `${isAdmin ? '<span class="admin-badge">ADMIN</span>' : ''}<div class="user-icon" onclick="openUserPanel()">${name.charAt(0).toUpperCase()}</div>`;
-    loadProducts();
-  } else {
-    area.innerHTML = `<button class="btn-login" onclick="showLogin()">Đăng nhập</button>`;
-  }
-});
-
 window.openUserPanel = async () => {
-  const snap = await get(ref(db, 'users/' + currentUser.uid));
+  if (!currentUser) return showLogin();
+  const snap = await get(ref(db, 'users/' + currentUser.key));
   userDataCache = snap.val() || {};
+  currentUser = { key: currentUser.key, ...userDataCache };
   if (userDataCache.isAdmin) { openAdminPanel(); return; }
   document.getElementById('userModal').classList.add('show');
   renderPanel();
@@ -254,7 +287,7 @@ function renderPanel() {
   const u = userDataCache;
   document.getElementById('userBalance').textContent = (u.balance || 0).toLocaleString() + 'đ';
   if (currentTab === 'wallet') {
-    const code = bankInfo.prefix + currentUser.uid.slice(0,5).toUpperCase();
+    const code = bankInfo.prefix + currentUser.key.slice(0,5).toUpperCase();
     c.innerHTML = `
       <div class="deposit-box">
         <h4 style="color:#ffd700;margin-bottom:10px">💳 Nạp tiền</h4>
@@ -271,19 +304,19 @@ function renderPanel() {
   } else {
     const hist = u.history || [];
     if (hist.length === 0) { c.innerHTML = '<div class="empty">📜 Chưa có đơn hàng</div>'; return; }
-    c.innerHTML = hist.slice().reverse().map(h => `<div class="item-box"><h4>${h.productName}</h4><p>Giá: ${h.price.toLocaleString()}đ</p><p style="color:#2ed573">Acc: <b>${h.accounts.join(', ')}</b></p><p style="font-size:11px;color:#666">${new Date(h.time).toLocaleString('vi-VN')}</p></div>`).join('');
+    c.innerHTML = hist.slice().reverse().map(h => `<div class="item-box"><h4>${h.productName}</h4><p>Giá: ${h.price.toLocaleString()}đ</p><p style="color:#00c853">Acc: <b>${h.accounts.join(', ')}</b></p><p style="font-size:11px;color:#666">${new Date(h.time).toLocaleString('vi-VN')}</p></div>`).join('');
   }
 }
 
 window.submitDeposit = async () => {
-  await push(ref(db, 'deposits'), { uid: currentUser.uid, name: userDataCache.name, email: currentUser.email, amount: 0, status: 'pending', time: Date.now() });
+  await push(ref(db, 'deposits'), { uid: currentUser.key, name: userDataCache.name, email: userDataCache.name, amount: 0, status: 'pending', time: Date.now() });
   window.notif('Đã gửi yêu cầu! Chờ admin duyệt.');
 };
 
 window.removeFromCart = async (idx) => {
   const cart = userDataCache.cart || [];
   cart.splice(idx, 1);
-  await update(ref(db, 'users/' + currentUser.uid), { cart });
+  await update(ref(db, 'users/' + currentUser.key), { cart });
   userDataCache.cart = cart;
   renderPanel();
 };
@@ -317,7 +350,7 @@ window.viewProduct = async (id) => {
     ${p.image ? `<img class="detail-img" src="${p.image}">` : `<div class="card-icon" style="border-radius:10px;margin-bottom:15px">${p.icon||'🎮'}</div>`}
     <div style="font-size:22px;color:#ffd700;font-weight:bold;margin-bottom:10px">${(p.price||0).toLocaleString()}đ</div>
     <div class="detail-desc">${p.description || 'Không có mô tả'}</div>
-    <p style="color:#aaa;font-size:13px;margin-bottom:15px">Còn lại: <b style="color:#2ed573">${stock}</b> acc</p>
+    <p style="color:#aaa;font-size:13px;margin-bottom:15px">Còn lại: <b style="color:#00c853">${stock}</b> acc</p>
     <button class="btn" onclick="buyNow('${id}')" ${stock===0?'disabled style="opacity:.5"':''}>💰 Mua ngay</button>
     <button class="btn btn-secondary" onclick="addToCart('${id}')">🛒 Thêm vào giỏ</button>
     <button class="btn btn-secondary" onclick="closeModal('productModal')">Đóng</button>`;
@@ -329,7 +362,7 @@ window.addToCart = async (id) => {
   const cart = userDataCache.cart || [];
   if (cart.includes(id)) return window.notif('Đã có trong giỏ', true);
   cart.push(id);
-  await update(ref(db, 'users/' + currentUser.uid), { cart });
+  await update(ref(db, 'users/' + currentUser.key), { cart });
   userDataCache.cart = cart;
   window.notif('Đã thêm vào giỏ');
 };
@@ -349,7 +382,7 @@ window.buyNow = async (id) => {
   const newBalance = userDataCache.balance - p.price;
   const history = userDataCache.history || [];
   history.push({ productName: p.name, price: p.price, accounts: [accTaken], time: Date.now() });
-  await update(ref(db, 'users/' + currentUser.uid), { balance: newBalance, history });
+  await update(ref(db, 'users/' + currentUser.key), { balance: newBalance, history });
   userDataCache.balance = newBalance;
   userDataCache.history = history;
   alert(`✅ Mua thành công!\n\nAcc FF của bạn:\n${accTaken}\n\nSố dư còn: ${newBalance.toLocaleString()}đ`);
@@ -357,28 +390,56 @@ window.buyNow = async (id) => {
 };
 
 // ============ IMGBB UPLOAD ============
+async function uploadToImgBB(file) {
+  const formData = new FormData();
+  formData.append('image', file);
+  const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, { method: 'POST', body: formData });
+  const data = await res.json();
+  if (data.success) return data.data.url;
+  throw new Error(data.error?.message || 'Lỗi upload');
+}
+
 window.uploadImage = async (input) => {
   const file = input.files[0];
   if (!file) return;
   document.getElementById('uploadStatus').textContent = '⏳ Đang tải ảnh...';
-  const formData = new FormData();
-  formData.append('image', file);
   try {
-    const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, { method: 'POST', body: formData });
-    const data = await res.json();
-    if (data.success) {
-      pendingImageUrl = data.data.url;
-      document.getElementById('pImage').value = pendingImageUrl;
-      const preview = document.getElementById('imgPreview');
-      preview.src = pendingImageUrl;
-      preview.style.display = 'block';
-      document.getElementById('uploadStatus').textContent = '✅ Tải ảnh thành công!';
-    } else {
-      document.getElementById('uploadStatus').textContent = '❌ Lỗi: ' + (data.error?.message || 'Không rõ');
-    }
+    const url = await uploadToImgBB(file);
+    pendingImageUrl = url;
+    document.getElementById('pImage').value = url;
+    const preview = document.getElementById('imgPreview');
+    preview.src = url;
+    preview.style.display = 'block';
+    document.getElementById('uploadStatus').textContent = '✅ Tải ảnh thành công!';
   } catch (e) {
-    document.getElementById('uploadStatus').textContent = '❌ Lỗi kết nối';
+    document.getElementById('uploadStatus').textContent = '❌ Lỗi: ' + e.message;
   }
+};
+
+window.uploadLogo = async (input) => {
+  const file = input.files[0];
+  if (!file) return;
+  document.getElementById('logoStatus').textContent = '⏳ Đang tải...';
+  try {
+    const url = await uploadToImgBB(file);
+    await set(ref(db, 'settings/logo'), url);
+    shopLogo = url;
+    renderLogo();
+    document.getElementById('logoStatus').textContent = '✅ Đã đổi logo!';
+    document.getElementById('logoPreview').src = url;
+    document.getElementById('logoPreview').style.display = 'block';
+  } catch (e) {
+    document.getElementById('logoStatus').textContent = '❌ Lỗi: ' + e.message;
+  }
+};
+
+window.resetLogo = async () => {
+  if (!confirm('Xóa logo, dùng chữ mặc định?')) return;
+  await remove(ref(db, 'settings/logo'));
+  shopLogo = '';
+  renderLogo();
+  document.getElementById('logoPreview').style.display = 'none';
+  document.getElementById('logoStatus').textContent = '✅ Đã reset logo';
 };
 
 // ============ ADMIN ============
@@ -429,7 +490,6 @@ async function renderAdminPanel() {
     c.innerHTML = list.length === 0 ? '<div class="empty">Chưa có user</div>' : list.map(u => `
       <div class="item-box">
         <h4>${u.name || 'No name'} ${u.isAdmin ? '👑' : ''}</h4>
-        <p>Email: ${u.email}</p>
         <p style="color:#ffd700">Số dư: ${(u.balance||0).toLocaleString()}đ</p>
       </div>`).join('');
   } else if (currentAdminTab === 'deposits') {
@@ -439,7 +499,6 @@ async function renderAdminPanel() {
     c.innerHTML = list.length === 0 ? '<div class="empty">Không có đơn nạp nào chờ</div>' : list.map(d => `
       <div class="item-box">
         <h4>${d.name}</h4>
-        <p>Email: ${d.email}</p>
         <p style="font-size:11px;color:#888">${new Date(d.time).toLocaleString('vi-VN')}</p>
         <input type="number" id="amt_${d.id}" placeholder="Số tiền duyệt" style="margin-top:8px">
         <div style="display:flex;gap:5px;margin-top:5px">
@@ -451,13 +510,20 @@ async function renderAdminPanel() {
     const snap = await get(ref(db, 'settings/bank'));
     const b = snap.val() || bankInfo;
     c.innerHTML = `
+      <p style="color:#ffd700;margin-bottom:15px">🖼️ Logo Shop</p>
+      ${shopLogo ? `<img src="${shopLogo}" style="max-width:100%;max-height:100px;border-radius:8px;margin-bottom:10px">` : '<p style="font-size:12px;color:#888;margin-bottom:10px">Chưa có logo (đang dùng chữ mặc định)</p>'}
+      <div class="upload-btn" onclick="document.getElementById('logoFile').click()">📷 Chọn ảnh logo mới</div>
+      <input type="file" id="logoFile" accept="image/*" style="display:none" onchange="uploadLogo(this)">
+      <div class="loading" id="logoStatus"></div>
+      <img class="img-preview" id="logoPreview" style="${shopLogo ? '' : 'display:none'}" src="${shopLogo}">
+      <button class="btn btn-secondary" onclick="resetLogo()" style="margin-bottom:20px">🔄 Reset logo mặc định</button>
+      
       <p style="color:#ffd700;margin-bottom:15px">💳 Cài đặt thông tin ngân hàng</p>
       <input id="setBank" placeholder="Tên ngân hàng" value="${b.bank || ''}">
       <input id="setStk" placeholder="Số tài khoản" value="${b.stk || ''}">
       <input id="setOwner" placeholder="Chủ tài khoản" value="${b.owner || ''}">
       <input id="setPrefix" placeholder="Tiền tố nội dung CK (VD: nap-phuc-)" value="${b.prefix || ''}">
-      <button class="btn" onclick="saveBankInfo()">💾 Lưu cài đặt</button>
-      <p style="font-size:12px;color:#888;margin-top:10px">User sẽ thấy thông tin này khi vào Ví → Nạp tiền</p>`;
+      <button class="btn" onclick="saveBankInfo()">💾 Lưu cài đặt</button>`;
   }
 }
 
@@ -518,25 +584,26 @@ document.getElementById('logo').addEventListener('click', async () => {
   logoClickCount++;
   if (logoClickCount >= 3) {
     logoClickCount = 0;
-    if (currentUser && userDataCache.isAdmin) { window.openAdminPanel(); return; }
+    if (currentUser && currentUser.isAdmin) { window.openAdminPanel(); return; }
     const pass = prompt('🔐 Nhập mật khẩu admin:');
     if (pass === ADMIN_PASS) {
-      try {
-        await signInWithEmailAndPassword(auth, 'admin@admin.com', 'adminadmin123');
-      } catch (e) {
-        try {
-          const cred = await createUserWithEmailAndPassword(auth, 'admin@admin.com', 'adminadmin123');
-          await set(ref(db, 'users/' + cred.user.uid), { name: 'ADMIN', email: 'admin@admin.com', balance: 0, cart: [], history: [], isAdmin: true, createdAt: Date.now() });
-        } catch (e2) { window.notif('Lỗi admin: ' + e2.message, true); return; }
-      }
-      if (auth.currentUser) await update(ref(db, 'users/' + auth.currentUser.uid), { isAdmin: true });
-      userDataCache.isAdmin = true;
-      setTimeout(() => { window.openAdminPanel(); window.notif('👑 Chào Admin!'); }, 800);
+      // Tạo/đảm bảo tài khoản ADMIN tồn tại
+      await set(ref(db, 'users/_admin_'), {
+        name: 'ADMIN', pass: ADMIN_PASS, balance: 0, cart: [], history: [],
+        isAdmin: true, createdAt: Date.now()
+      });
+      saveSession('_admin_');
+      await loadCurrentUser();
+      window.notif('👑 Chào Admin!');
+      setTimeout(() => window.openAdminPanel(), 500);
     } else if (pass !== null) {
       window.notif('Sai mật khẩu!', true);
     }
   }
 });
+
+// ============ INIT ============
+loadCurrentUser();
 </script>
 
 </body>
