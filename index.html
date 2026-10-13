@@ -27,64 +27,93 @@
   }
   .user-icon:hover { transform:scale(1.08); }
   
-  main { padding:14px; max-width:1200px; margin:0 auto; }
+  main { padding:14px; max-width:1200px; margin:0 auto; padding-bottom:100px; }
   
-  /* GRID: 2 CỘT TRÊN MOBILE */
   .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px; }
-  @media (min-width:640px) {
-    .grid { grid-template-columns:repeat(3,1fr); gap:14px; }
-  }
-  @media (min-width:1024px) {
-    .grid { grid-template-columns:repeat(4,1fr); gap:16px; }
-  }
+  @media (min-width:640px) { .grid { grid-template-columns:repeat(3,1fr); gap:14px; } }
+  @media (min-width:1024px) { .grid { grid-template-columns:repeat(4,1fr); gap:16px; } }
   
-  /* CARD: HÌNH CHỮ NHẬT DỌC */
   .card {
     background:#131826; border-radius:12px; overflow:hidden;
     border:1px solid #1f2937; transition:.25s ease; cursor:pointer;
-    box-shadow:0 4px 12px rgba(0,0,0,.25);
-    position:relative;
+    box-shadow:0 4px 12px rgba(0,0,0,.25); position:relative;
   }
   .card:hover { transform:translateY(-4px); border-color:#00c853; box-shadow:0 10px 24px rgba(0,200,83,.3); }
-  .card .img-wrap {
-    width:100%;
-    aspect-ratio:1/1;
-    overflow:hidden;
-    background:#1f2937;
-    position:relative;
-  }
+  .card .img-wrap { width:100%; aspect-ratio:1/1; overflow:hidden; background:#1f2937; position:relative; }
   .card .img-wrap img { width:100%; height:100%; object-fit:cover; }
   .card .img-wrap .icon-placeholder {
     width:100%; height:100%; display:flex; align-items:center; justify-content:center;
     font-size:60px; background:linear-gradient(135deg,#1f2937,#131826);
   }
   .card .price-bar {
-    padding:8px 10px;
-    background:linear-gradient(135deg,#0a0e17,#131826);
-    text-align:center;
-    border-top:1px solid #1f2937;
+    padding:8px 10px; background:linear-gradient(135deg,#0a0e17,#131826);
+    text-align:center; border-top:1px solid #1f2937;
   }
-  .card .price-bar .price {
-    color:#ffd700; font-size:15px; font-weight:800;
-    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  }
-  /* Nhãn hết hàng phủ lên ảnh */
+  .card .price-bar .price { color:#ffd700; font-size:15px; font-weight:800; }
   .card .out-label {
-    position:absolute; top:8px; left:8px;
-    background:rgba(239,68,68,.95); color:#fff;
-    padding:3px 8px; border-radius:6px;
-    font-size:10px; font-weight:800; letter-spacing:.3px;
+    position:absolute; top:8px; left:8px; background:rgba(239,68,68,.95); color:#fff;
+    padding:3px 8px; border-radius:6px; font-size:10px; font-weight:800;
   }
   .card .stock-label {
-    position:absolute; top:8px; right:8px;
-    background:rgba(0,200,83,.95); color:#fff;
-    padding:3px 8px; border-radius:6px;
-    font-size:10px; font-weight:800; letter-spacing:.3px;
+    position:absolute; top:8px; right:8px; background:rgba(0,200,83,.95); color:#fff;
+    padding:3px 8px; border-radius:6px; font-size:10px; font-weight:800;
   }
   .card.out-stock .img-wrap { filter:grayscale(.6); }
   .card.out-stock:hover { border-color:#ef4444; }
   
-  /* MODAL */
+  /* BẢNG XẾP HẠNG */
+  .rank-section { margin-top:30px; }
+  .rank-section h2 { color:#ffd700; font-size:20px; font-weight:800; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+  .rank-list { display:flex; flex-direction:column; gap:8px; }
+  .rank-item {
+    background:#131826; border-radius:12px; padding:12px 14px;
+    display:flex; align-items:center; gap:12px;
+    border:1px solid #1f2937; transition:.2s;
+  }
+  .rank-item:hover { border-color:#00c853; }
+  .rank-item.top1 { background:linear-gradient(135deg,#3d2f00,#131826); border-color:#ffd700; box-shadow:0 4px 16px rgba(255,215,0,.2); }
+  .rank-item.top2 { background:linear-gradient(135deg,#2a2a2a,#131826); border-color:#c0c0c0; }
+  .rank-item.top3 { background:linear-gradient(135deg,#2a1e0e,#131826); border-color:#cd7f32; }
+  .rank-item .rank-num {
+    width:36px; height:36px; border-radius:50%; background:#0a0e17;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:15px; color:#ffd700; flex-shrink:0;
+    border:1.5px solid #1f2937;
+  }
+  .rank-item.top1 .rank-num { background:linear-gradient(135deg,#ffd700,#ffb700); color:#000; border-color:#ffd700; }
+  .rank-item.top2 .rank-num { background:linear-gradient(135deg,#e0e0e0,#a0a0a0); color:#000; border-color:#e0e0e0; }
+  .rank-item.top3 .rank-num { background:linear-gradient(135deg,#cd7f32,#8b5a2b); color:#fff; border-color:#cd7f32; }
+  .rank-item .rank-avatar {
+    width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,#00c853,#00a844);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:16px; color:#fff; flex-shrink:0;
+  }
+  .rank-item .rank-info { flex:1; min-width:0; }
+  .rank-item .rank-name { font-weight:700; font-size:14px; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .rank-item .rank-amount { font-size:12px; color:#ffd700; font-weight:700; }
+  
+  /* CONTACT BUTTON */
+  .contact-float {
+    position:fixed; bottom:20px; right:20px;
+    width:56px; height:56px; border-radius:50%;
+    background:linear-gradient(135deg,#00c853,#00a844);
+    display:flex; align-items:center; justify-content:center;
+    font-size:26px; cursor:pointer;
+    box-shadow:0 8px 24px rgba(0,200,83,.5);
+    z-index:998; transition:.2s;
+    border:3px solid #fff;
+  }
+  .contact-float:hover { transform:scale(1.1); }
+  .contact-float::after {
+    content:''; position:absolute; inset:-3px;
+    border-radius:50%; border:2px solid #00c853;
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform:scale(1); opacity:1; }
+    100% { transform:scale(1.4); opacity:0; }
+  }
+  
   .modal-bg { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; justify-content:center; align-items:center; z-index:999; padding:15px; backdrop-filter:blur(4px); }
   .modal-bg.show { display:flex; animation:fadeIn .2s; }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -99,7 +128,6 @@
     width:100%; padding:12px 14px; background:#0a0e17;
     border:1.5px solid #1f2937; border-radius:10px;
     color:#fff; margin-bottom:10px; font-size:14px;
-    transition:.2s;
   }
   .modal input:focus, .modal textarea:focus { outline:none; border-color:#00c853; box-shadow:0 0 0 3px rgba(0,200,83,.15); }
   .modal textarea { min-height:80px; resize:vertical; font-family:inherit; }
@@ -109,10 +137,10 @@
     font-weight:700; cursor:pointer; font-size:15px; margin-top:5px;
     transition:.2s; box-shadow:0 4px 12px rgba(0,200,83,.3);
   }
-  .modal .btn:hover { transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,200,83,.45); }
+  .modal .btn:hover { transform:translateY(-2px); }
   .modal .btn-secondary { background:#1f2937; box-shadow:none; }
-  .modal .btn-secondary:hover { background:#374151; box-shadow:none; }
-  .modal .btn-danger { background:linear-gradient(135deg,#ef4444,#dc2626); box-shadow:0 4px 12px rgba(239,68,68,.3); }
+  .modal .btn-danger { background:linear-gradient(135deg,#ef4444,#dc2626); }
+  .modal .btn-warning { background:linear-gradient(135deg,#f59e0b,#d97706); }
   
   .link-small { text-align:center; margin-top:14px; font-size:13px; }
   .link-small a { color:#ffd700; cursor:pointer; text-decoration:none; font-weight:600; }
@@ -129,17 +157,20 @@
     transition:.2s;
   }
   .panel-tabs-v button:hover { background:#1f2937; }
-  .panel-tabs-v button.active { background:linear-gradient(135deg,#00c853,#00a844); border-color:#00c853; color:#fff; box-shadow:0 4px 12px rgba(0,200,83,.3); }
+  .panel-tabs-v button.active { background:linear-gradient(135deg,#00c853,#00a844); border-color:#00c853; color:#fff; }
   
   .item-box { background:#0a0e17; padding:12px; border-radius:10px; margin-bottom:10px; border-left:3px solid #00c853; }
   .item-box h4 { font-size:14px; margin-bottom:5px; color:#ffd700; font-weight:700; }
   .item-box p { font-size:13px; color:#9ca3af; }
+  .item-box.rejected { border-left-color:#ef4444; }
+  .item-box.approved { border-left-color:#00c853; }
+  .item-box.pending { border-left-color:#f59e0b; }
   
-  .balance { background:linear-gradient(135deg,#00c853,#00a844); padding:20px; border-radius:14px; text-align:center; margin-bottom:18px; box-shadow:0 8px 20px rgba(0,200,83,.25); }
+  .balance { background:linear-gradient(135deg,#00c853,#00a844); padding:20px; border-radius:14px; text-align:center; margin-bottom:18px; }
   .balance .label { font-size:13px; color:rgba(255,255,255,.85); }
-  .balance .num { font-size:32px; font-weight:800; color:#ffd700; margin-top:4px; text-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .balance .num { font-size:32px; font-weight:800; color:#ffd700; margin-top:4px; }
   
-  .admin-badge { background:linear-gradient(135deg,#ffd700,#ffb700); color:#000; padding:5px 11px; border-radius:14px; font-size:11px; font-weight:800; letter-spacing:.5px; }
+  .admin-badge { background:linear-gradient(135deg,#ffd700,#ffb700); color:#000; padding:5px 11px; border-radius:14px; font-size:11px; font-weight:800; }
   
   .deposit-box { background:#0a0e17; padding:14px; border-radius:12px; margin-bottom:14px; border:1.5px solid #1f2937; }
   .deposit-box .code { 
@@ -148,14 +179,16 @@
     margin:8px 0; word-break:break-all; text-align:center;
     border:1.5px dashed #00c853; font-weight:700;
   }
+  .qr-img { width:100%; max-width:300px; margin:0 auto 12px; display:block; border-radius:12px; background:#fff; padding:8px; }
   
   .notif { 
     position:fixed; top:80px; right:20px;
     background:linear-gradient(135deg,#00c853,#00a844); color:#fff;
     padding:14px 22px; border-radius:12px; font-weight:700; font-size:14px;
     z-index:9999; animation:slideIn .3s; box-shadow:0 8px 24px rgba(0,200,83,.4);
+    max-width:280px;
   }
-  .notif.error { background:linear-gradient(135deg,#ef4444,#dc2626); box-shadow:0 8px 24px rgba(239,68,68,.4); }
+  .notif.error { background:linear-gradient(135deg,#ef4444,#dc2626); }
   @keyframes slideIn { from { transform:translateX(400px); opacity:0; } to { transform:translateX(0); opacity:1; } }
   
   .empty { text-align:center; color:#4b5563; padding:60px 20px; font-style:italic; font-size:15px; }
@@ -180,7 +213,6 @@
   }
   .amount-grid button:hover { background:#1f2937; border-color:#00c853; color:#00c853; }
   
-  /* LIST ACC */
   .acc-list { background:#0a0e17; border-radius:10px; padding:10px; margin-bottom:12px; max-height:200px; overflow-y:auto; }
   .acc-list .acc-item {
     display:flex; justify-content:space-between; align-items:center;
@@ -204,7 +236,11 @@
 
 <main>
   <div id="products"></div>
+  <div id="rankSection"></div>
 </main>
+
+<!-- NÚT LIÊN HỆ -->
+<div class="contact-float" onclick="contactAdmin()" title="Liên hệ Admin">💬</div>
 
 <!-- AUTH MODAL -->
 <div class="modal-bg" id="authModal">
@@ -246,6 +282,7 @@
       <button onclick="showTab('wallet')" id="tabWallet" class="active">💰 Ví & Nạp tiền</button>
       <button onclick="showTab('cart')" id="tabCart">🛒 Giỏ hàng</button>
       <button onclick="showTab('history')" id="tabHistory">📜 Lịch sử mua hàng</button>
+      <button onclick="showTab('deposits')" id="tabDeposits">💳 Lịch sử nạp tiền</button>
     </div>
     <div id="panelContent"></div>
     <button class="btn btn-secondary" onclick="logout()" style="margin-top:18px">Đăng xuất</button>
@@ -258,10 +295,11 @@
   <div class="modal" style="max-width:620px">
     <h2>🔐 Admin Panel <span class="admin-badge">ADMIN</span></h2>
     <div class="panel-tabs-v">
-      <button onclick="showAdminTab('add')" id="atabAdd" class="active">➕ Thêm sản phẩm mới</button>
+      <button onclick="showAdminTab('add')" id="atabAdd" class="active">➕ Thêm sản phẩm</button>
       <button onclick="showAdminTab('products')" id="atabProducts">📦 Quản lý sản phẩm</button>
       <button onclick="showAdminTab('users')" id="atabUsers">👥 Danh sách user</button>
       <button onclick="showAdminTab('deposits')" id="atabDeposits">💳 Duyệt nạp tiền</button>
+      <button onclick="showAdminTab('deposit')" id="atabDeposit">💰 Nạp tiền</button>
       <button onclick="showAdminTab('settings')" id="atabSettings">⚙️ Cài đặt shop</button>
     </div>
     <div id="adminContent"></div>
@@ -285,6 +323,21 @@
   <div class="modal" id="addAccModalContent"></div>
 </div>
 
+<!-- CONTACT MODAL -->
+<div class="modal-bg" id="contactModal">
+  <div class="modal">
+    <h2>💬 Liên hệ Admin</h2>
+    <p style="font-size:14px;color:#9ca3af;margin-bottom:16px;text-align:center">Bạn cần hỗ trợ? Liên hệ ngay:</p>
+    <div class="deposit-box" style="text-align:center">
+      <p style="font-size:13px;color:#9ca3af;margin-bottom:6px">Zalo / SĐT Admin</p>
+      <div class="code" style="font-size:22px">0865561731</div>
+    </div>
+    <button class="btn" onclick="openZalo()">💬 Chat Zalo</button>
+    <button class="btn btn-secondary" onclick="window.location.href='tel:0865561731'" style="margin-top:8px">📞 Gọi điện</button>
+    <button class="btn btn-secondary" onclick="closeModal('contactModal')" style="margin-top:8px">Đóng</button>
+  </div>
+</div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase, ref, set, get, push, update, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
@@ -302,7 +355,8 @@ const firebaseConfig = {
 const IMGBB_KEY = "11fa26a3d2a300961577fa631bfc603c";
 const ADMIN_USER = "admin";
 const ADMIN_PASS = "phc51580";
-const ZALO_LINK = "https://zalo.me/0865561731";
+const ADMIN_PHONE = "0865561731";
+const ZALO_LINK = "https://zalo.me/" + ADMIN_PHONE;
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -312,14 +366,11 @@ let isRegisterMode = false;
 let currentTab = 'wallet';
 let currentAdminTab = 'add';
 let userDataCache = {};
-let bankInfo = { bank: 'MBBank', stk: '0865561731', owner: 'PHUC', prefix: 'nap-phuc-' };
+let bankInfo = { bank: 'MBBank', stk: ADMIN_PHONE, owner: 'PHUC', prefix: 'nap-phuc-', qr: '' };
 let shopLogo = '';
 
-// Biến tạm khi thêm acc vào SP cũ
 let tempAccList = [];
 let tempAccProductId = '';
-
-// Biến tạm khi tạo SP mới
 let tempNewProductAccs = [];
 
 // SESSION
@@ -333,11 +384,15 @@ window.notif = (msg, isError=false) => {
   el.className = 'notif' + (isError ? ' error' : '');
   el.textContent = msg;
   document.body.appendChild(el);
-  setTimeout(() => el.remove(), 2500);
+  setTimeout(() => el.remove(), 2800);
 };
 
+// CONTACT
+window.contactAdmin = () => document.getElementById('contactModal').classList.add('show');
+window.openZalo = () => { window.open(ZALO_LINK, '_blank'); closeModal('contactModal'); };
+
 // SETTINGS
-onValue(ref(db, 'settings/bank'), (snap) => { if (snap.val()) bankInfo = snap.val(); });
+onValue(ref(db, 'settings/bank'), (snap) => { if (snap.val()) bankInfo = { ...bankInfo, ...snap.val() }; });
 onValue(ref(db, 'settings/logo'), (snap) => { shopLogo = snap.val() || ''; renderLogo(); });
 
 function renderLogo() {
@@ -368,7 +423,7 @@ window.doAuth = async () => {
   
   if (isRegisterMode) {
     if (existing) return window.notif('Tên đã tồn tại!', true);
-    await set(ref(db, 'users/' + key), { name, pass, balance: 0, cart: [], history: [], createdAt: Date.now() });
+    await set(ref(db, 'users/' + key), { name, pass, balance: 0, totalDeposited: 0, cart: [], history: [], createdAt: Date.now() });
     window.notif('Đăng ký thành công!');
   } else {
     if (!existing) return window.notif('Tên không tồn tại!', true);
@@ -393,7 +448,7 @@ window.doAdminLogin = async () => {
   const u = document.getElementById('adminUser').value.trim();
   const p = document.getElementById('adminPass').value;
   if (u !== ADMIN_USER || p !== ADMIN_PASS) return window.notif('Sai tên hoặc mật khẩu admin!', true);
-  await set(ref(db, 'users/_admin_'), { name: 'ADMIN', pass: ADMIN_PASS, balance: 0, cart: [], history: [], isAdmin: true, createdAt: Date.now() });
+  await set(ref(db, 'users/_admin_'), { name: 'ADMIN', pass: ADMIN_PASS, balance: 0, totalDeposited: 0, cart: [], history: [], isAdmin: true, createdAt: Date.now() });
   saveSession('_admin_');
   await loadCurrentUser();
   closeModal('adminLoginModal');
@@ -425,6 +480,8 @@ async function loadCurrentUser() {
     currentUser = null;
     renderUserArea();
     document.getElementById('authModal').classList.add('show');
+    loadProducts();
+    loadRanking();
     return;
   }
   const snap = await get(ref(db, 'users/' + key));
@@ -434,6 +491,8 @@ async function loadCurrentUser() {
     currentUser = null;
     renderUserArea();
     document.getElementById('authModal').classList.add('show');
+    loadProducts();
+    loadRanking();
     return;
   }
   currentUser = { key, ...data };
@@ -446,6 +505,7 @@ async function loadCurrentUser() {
     document.getElementById('authModal').classList.remove('show');
   }
   loadProducts();
+  loadRanking();
 }
 
 function renderUserArea() {
@@ -472,7 +532,7 @@ window.openUserPanel = async () => {
 // ============ USER PANEL ============
 window.showTab = (tab) => {
   currentTab = tab;
-  ['Wallet','Cart','History'].forEach(t => document.getElementById('tab' + t).classList.toggle('active', t.toLowerCase() === tab));
+  ['Wallet','Cart','History','Deposits'].forEach(t => document.getElementById('tab' + t).classList.toggle('active', t.toLowerCase() === tab));
   renderPanel();
 };
 
@@ -501,10 +561,25 @@ function renderPanel() {
     const cart = u.cart || [];
     if (cart.length === 0) { c.innerHTML = '<div class="empty">🛒 Giỏ hàng trống</div>'; return; }
     c.innerHTML = cart.map((id, idx) => `<div class="item-box"><p>SP ID: ${id}</p><button class="btn btn-danger" style="padding:6px;font-size:12px;margin-top:5px" onclick="removeFromCart(${idx})">Xóa</button></div>`).join('');
-  } else {
+  } else if (currentTab === 'history') {
     const hist = u.history || [];
     if (hist.length === 0) { c.innerHTML = '<div class="empty">📜 Chưa có đơn hàng</div>'; return; }
     c.innerHTML = hist.slice().reverse().map(h => `<div class="item-box"><h4>${h.productName}</h4><p>Giá: ${h.price.toLocaleString()}đ</p><p style="color:#00c853;font-weight:600">🔑 Acc: <b>${h.accounts.join(', ')}</b></p><p style="font-size:11px;color:#6b7280;margin-top:4px">${new Date(h.time).toLocaleString('vi-VN')}</p></div>`).join('');
+  } else if (currentTab === 'deposits') {
+    const deps = u.deposits || [];
+    if (deps.length === 0) { c.innerHTML = '<div class="empty">💳 Chưa có lần nạp nào</div>'; return; }
+    c.innerHTML = deps.slice().reverse().map(d => {
+      let cls = 'pending', statusText = '⏳ Chờ duyệt';
+      if (d.status === 'approved') { cls = 'approved'; statusText = '✅ Đã duyệt'; }
+      if (d.status === 'rejected') { cls = 'rejected'; statusText = '❌ Đã hủy'; }
+      return `<div class="item-box ${cls}">
+        <h4>${(d.amount||0).toLocaleString()}đ</h4>
+        <p>${statusText}</p>
+        ${d.reason ? `<p style="color:#ef4444;font-size:12px;margin-top:4px">Lý do: ${d.reason}</p>` : ''}
+        ${d.status === 'rejected' ? `<p style="color:#ffd700;font-size:12px;margin-top:4px">Liên hệ admin: <b>${ADMIN_PHONE}</b></p>` : ''}
+        <p style="font-size:11px;color:#6b7280;margin-top:4px">${new Date(d.time).toLocaleString('vi-VN')}</p>
+      </div>`;
+    }).join('');
   }
 }
 
@@ -514,18 +589,27 @@ window.createDepositCode = async () => {
   const amt = parseInt(document.getElementById('depositAmount').value);
   if (!amt || amt < 2000) return window.notif('Số tiền tối thiểu 2.000đ', true);
   const code = bankInfo.prefix + currentUser.key.slice(0,5).toUpperCase() + '-' + amt;
+  
+  // Lưu đơn nạp
   await push(ref(db, 'deposits'), { uid: currentUser.key, name: userDataCache.name, amount: amt, code: code, status: 'pending', time: Date.now() });
+  // Lưu vào lịch sử user
+  const deps = userDataCache.deposits || [];
+  deps.push({ amount: amt, code: code, status: 'pending', time: Date.now() });
+  await update(ref(db, 'users/' + currentUser.key), { deposits: deps });
+  userDataCache.deposits = deps;
+  
   document.getElementById('depositModalContent').innerHTML = `
     <h2>💳 Thông tin chuyển khoản</h2>
     <div class="deposit-box">
       <p style="font-size:13px;color:#9ca3af">Số tiền cần chuyển:</p>
       <div style="font-size:26px;color:#ffd700;font-weight:800;margin-bottom:12px">${amt.toLocaleString()}đ</div>
+      ${bankInfo.qr ? `<img class="qr-img" src="${bankInfo.qr}" alt="QR">` : ''}
       <p style="font-size:13px;color:#9ca3af">Nội dung CK:</p>
       <div class="code">${code}</div>
       <p style="font-size:13px;color:#9ca3af;margin-top:10px">Ngân hàng: <b style="color:#fff">${bankInfo.bank}</b></p>
       <p style="font-size:13px;color:#9ca3af">Số TK: <b style="color:#fff">${bankInfo.stk}</b></p>
       <p style="font-size:13px;color:#9ca3af">Chủ TK: <b style="color:#fff">${bankInfo.owner}</b></p>
-      <p style="font-size:12px;color:#6b7280;margin-top:12px;line-height:1.5">⚠️ Chuyển đúng số tiền và nội dung để admin duyệt nhanh</p>
+      <p style="font-size:12px;color:#ef4444;margin-top:12px;line-height:1.5">⚠️ Chuyển ĐÚNG số tiền (${amt.toLocaleString()}đ) và nội dung. Nếu CK sai số tiền, admin sẽ hủy đơn!</p>
     </div>
     <button class="btn" onclick="closeModal('depositModal')">✅ Tôi đã chuyển khoản</button>
   `;
@@ -562,6 +646,43 @@ window.loadProducts = () => {
         </div>
       </div>`;
     }).join('') + '</div>';
+  });
+};
+
+// ============ RANKING ============
+window.loadRanking = () => {
+  onValue(ref(db, 'users'), (snap) => {
+    const data = snap.val() || {};
+    const list = Object.entries(data)
+      .filter(([k]) => !k.startsWith('_admin'))
+      .map(([id, u]) => ({ id, name: u.name || 'No name', total: u.totalDeposited || 0 }))
+      .filter(u => u.total > 0)
+      .sort((a, b) => b.total - a.total)
+      .slice(0, 10);
+    
+    const el = document.getElementById('rankSection');
+    if (list.length === 0) { el.innerHTML = ''; return; }
+    
+    el.innerHTML = `
+      <div class="rank-section">
+        <h2>🏆 Bảng xếp hạng nạp</h2>
+        <div class="rank-list">
+          ${list.map((u, i) => {
+            const top = i < 3 ? `top${i+1}` : '';
+            const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : (i+1);
+            return `
+              <div class="rank-item ${top}">
+                <div class="rank-num">${medal}</div>
+                <div class="rank-avatar">${u.name.charAt(0).toUpperCase()}</div>
+                <div class="rank-info">
+                  <div class="rank-name">${u.name}</div>
+                  <div class="rank-amount">💰 ${u.total.toLocaleString()}đ</div>
+                </div>
+              </div>`;
+          }).join('')}
+        </div>
+      </div>
+    `;
   });
 };
 
@@ -664,6 +785,28 @@ window.resetLogo = async () => {
   window.notif('Đã reset logo');
 };
 
+window.uploadQR = async (input) => {
+  const file = input.files[0];
+  if (!file) return;
+  document.getElementById('qrStatus').textContent = '⏳ Đang tải...';
+  try {
+    const url = await uploadToImgBB(file);
+    await update(ref(db, 'settings/bank'), { qr: url });
+    bankInfo.qr = url;
+    document.getElementById('qrStatus').textContent = '✅ Đã cập nhật QR!';
+  } catch (e) {
+    document.getElementById('qrStatus').textContent = '❌ Lỗi: ' + e.message;
+  }
+};
+
+window.removeQR = async () => {
+  if (!confirm('Xóa ảnh QR?')) return;
+  await update(ref(db, 'settings/bank'), { qr: '' });
+  bankInfo.qr = '';
+  window.notif('Đã xóa QR');
+  renderAdminPanel();
+};
+
 // ============ ADMIN ============
 window.openAdminPanel = () => {
   document.getElementById('adminModal').classList.add('show');
@@ -672,7 +815,7 @@ window.openAdminPanel = () => {
 
 window.showAdminTab = (tab) => {
   currentAdminTab = tab;
-  ['add','products','users','deposits','settings'].forEach(t => {
+  ['add','products','users','deposits','deposit','settings'].forEach(t => {
     const el = document.getElementById('atab' + t.charAt(0).toUpperCase() + t.slice(1));
     if (el) el.classList.toggle('active', t === tab);
   });
@@ -693,12 +836,10 @@ async function renderAdminPanel() {
       <input id="pIcon" placeholder="Hoặc icon emoji (VD: 🎮🔥⚔️)">
       <input id="pPrice" type="number" placeholder="Giá (VNĐ)">
       <textarea id="pDesc" placeholder="Mô tả sản phẩm"></textarea>
-      
       <p style="color:#ffd700;font-size:13px;font-weight:700;margin:8px 0 8px">➕ Thêm acc vào SP (nhập từng acc):</p>
       <div id="accListBox" class="acc-list"><div class="acc-empty">Chưa có acc nào</div></div>
       <input id="singleAccInput" placeholder="Nhập acc: user|pass">
       <button class="btn btn-secondary" onclick="addSingleAccNew()" style="margin-bottom:12px">➕ Thêm acc vào danh sách</button>
-      
       <button class="btn" onclick="addProduct()">💾 Tạo sản phẩm</button>`;
   } else if (currentAdminTab === 'products') {
     const snap = await get(ref(db, 'products'));
@@ -725,22 +866,38 @@ async function renderAdminPanel() {
       <div class="item-box">
         <h4>${u.name || 'No name'} ${u.isAdmin ? '👑' : ''}</h4>
         <p style="color:#ffd700">Số dư: ${(u.balance||0).toLocaleString()}đ</p>
+        <p style="color:#.total00c853;Depfont-size:12px">Tổng nạp: ${(uosited||0).toLocaleString()}đ</p>
       </div>`).join('');
   } else if (currentAdminTab === 'deposits') {
     const snap = await get(ref(db, 'deposits'));
     const data = snap.val() || {};
     const list = Object.entries(data).map(([id, d]) => ({ id, ...d })).filter(d => d.status === 'pending').reverse();
     c.innerHTML = list.length === 0 ? '<div class="empty">Không có đơn nạp chờ duyệt</div>' : list.map(d => `
-      <div class="item-box">
+      <div class="item-box pending">
         <h4>👤 ${d.name}</h4>
-        <p>Số tiền: <b style="color:#ffd700">${(d.amount||0).toLocaleString()}đ</b></p>
+        <p>Số tiền yêu cầu: <b style="color:#ffd700">${(d.amount||0).toLocaleString()}đ</b></p>
         <p style="font-size:11px;color:#6b7280">Mã: ${d.code || 'N/A'}</p>
         <p style="font-size:11px;color:#6b7280">${new Date(d.time).toLocaleString('vi-VN')}</p>
         <div style="display:flex;gap:6px;margin-top:8px">
           <button class="btn" style="padding:8px;font-size:12px;flex:1" onclick="approveDeposit('${d.id}','${d.uid}',${d.amount})">✅ Duyệt +${(d.amount||0).toLocaleString()}đ</button>
-          <button class="btn btn-danger" style="padding:8px;font-size:12px;flex:1" onclick="rejectDeposit('${d.id}')">❌ Từ chối</button>
+          <button class="btn btn-danger" style="padding:8px;font-size:12px;flex:1" onclick="rejectDepositUI('${d.id}')">❌ Hủy đơn</button>
         </div>
       </div>`).join('');
+  } else if (currentAdminTab === 'deposit') {
+    // Admin nạp tiền cho chính mình
+    const snap = await get(ref(db, 'users/_admin_'));
+    const u = snap.val() || {};
+    c.innerHTML = `
+      <div class="balance">
+        <div class="label">Số dư Admin</div>
+        <div class="num">${(u.balance||0).toLocaleString()}đ</div>
+      </div>
+      <div class="deposit-box">
+        <h4 style="color:#ffd700;margin-bottom:12px;font-size:15px">💰 Nạp tiền vào ví Admin</h4>
+        <p style="font-size:13px;color:#9ca3af;margin-bottom:12px">Nhập số tiền muốn nạp (tối thiểu 2.000đ):</p>
+        <input type="number" id="adminDepositAmount" placeholder="Nhập số tiền" min="2000">
+        <button class="btn" onclick="adminDepositSelf()">➕ Cộng tiền vào ví</button>
+      </div>`;
   } else if (currentAdminTab === 'settings') {
     const snap = await get(ref(db, 'settings/bank'));
     const b = snap.val() || bankInfo;
@@ -752,6 +909,13 @@ async function renderAdminPanel() {
       <div class="loading" id="logoStatus"></div>
       <button class="btn btn-secondary" onclick="resetLogo()" style="margin-bottom:22px">🔄 Reset logo</button>
       
+      <p style="color:#ffd700;margin-bottom:12px;font-weight:700">📱 Ảnh QR Ngân hàng</p>
+      ${b.qr ? `<img src="${b.qr}" style="max-width:100%;max-height:200px;border-radius:10px;margin-bottom:10px;background:#fff;padding:6px">` : '<p style="font-size:12px;color:#6b7280;margin-bottom:10px">Chưa có ảnh QR</p>'}
+      <div class="upload-btn" onclick="document.getElementById('qrFile').click()">📷 Chọn ảnh QR mới</div>
+      <input type="file" id="qrFile" accept="image/*" style="display:none" onchange="uploadQR(this)">
+      <div class="loading" id="qrStatus"></div>
+      ${b.qr ? `<button class="btn btn-danger" onclick="removeQR()" style="margin-bottom:22px">🗑 Xóa ảnh QR</button>` : ''}
+      
       <p style="color:#ffd700;margin-bottom:12px;font-weight:700">💳 Thông tin ngân hàng</p>
       <input id="setBank" placeholder="Tên ngân hàng" value="${b.bank || ''}">
       <input id="setStk" placeholder="Số tài khoản" value="${b.stk || ''}">
@@ -761,7 +925,71 @@ async function renderAdminPanel() {
   }
 }
 
-// ============ THÊM ACC VÀO SP MỚI (đang tạo) ============
+window.adminDepositSelf = async () => {
+  const amt = parseInt(document.getElementById('adminDepositAmount').value);
+  if (!amt || amt < 2000) return window.notif('Tối thiểu 2.000đ', true);
+  const snap = await get(ref(db, 'users/_admin_'));
+  const u = snap.val() || {};
+  await update(ref(db, 'users/_admin_'), { balance: (u.balance || 0) + amt });
+  window.notif('Đã cộng ' + amt.toLocaleString() + 'đ!');
+  renderAdminPanel();
+};
+
+// HỦY ĐƠN NẠP
+window.rejectDepositUI = (depositId) => {
+  const reason = prompt('Nhập lý do hủy đơn:\n(VD: CK thiếu, CK sai nội dung...)', 'CK thiếu, vui lòng liên hệ admin ' + ADMIN_PHONE);
+  if (reason === null) return;
+  rejectDeposit(depositId, reason);
+};
+
+window.rejectDeposit = async (depositId, reason) => {
+  const snap = await get(ref(db, 'deposits/' + depositId));
+  const d = snap.val();
+  if (!d) return;
+  await update(ref(db, 'deposits/' + depositId), { status: 'rejected', reason: reason || 'Không có lý do', rejectedAt: Date.now() });
+  
+  // Cập nhật trong lịch sử user
+  const uSnap = await get(ref(db, 'users/' + d.uid));
+  const u = uSnap.val();
+  if (u && u.deposits) {
+    const idx = u.deposits.findIndex(x => x.code === d.code && x.time === d.time);
+    if (idx >= 0) {
+      u.deposits[idx].status = 'rejected';
+      u.deposits[idx].reason = reason;
+      await update(ref(db, 'users/' + d.uid), { deposits: u.deposits });
+    }
+  }
+  window.notif('Đã hủy đơn!');
+  renderAdminPanel();
+};
+
+window.approveDeposit = async (depositId, uid, amount) => {
+  const snap = await get(ref(db, 'deposits/' + depositId));
+  const d = snap.val();
+  if (!d) return;
+  const uSnap = await get(ref(db, 'users/' + uid));
+  const u = uSnap.val();
+  if (!u) return window.notif('User không tồn tại', true);
+  
+  await update(ref(db, 'users/' + uid), {
+    balance: (u.balance || 0) + amount,
+    totalDeposited: (u.totalDeposited || 0) + amount
+  });
+  await update(ref(db, 'deposits/' + depositId), { status: 'approved', approvedAt: Date.now() });
+  
+  // Cập nhật trong lịch sử user
+  if (u.deposits) {
+    const idx = u.deposits.findIndex(x => x.code === d.code && x.time === d.time);
+    if (idx >= 0) {
+      u.deposits[idx].status = 'approved';
+      await update(ref(db, 'users/' + uid), { deposits: u.deposits });
+    }
+  }
+  window.notif('Đã duyệt +' + amount.toLocaleString() + 'đ');
+  renderAdminPanel();
+};
+
+// ============ THÊM ACC ============
 window.addSingleAccNew = () => {
   const val = document.getElementById('singleAccInput').value.trim();
   if (!val) return window.notif('Nhập acc trước', true);
@@ -779,36 +1007,25 @@ function renderAccListNew() {
     return;
   }
   box.innerHTML = tempNewProductAccs.map((a, i) => `
-    <div class="acc-item">
-      <span>${a}</span>
-      <button onclick="removeAccNew(${i})">🗑</button>
-    </div>
+    <div class="acc-item"><span>${a}</span><button onclick="removeAccNew(${i})">🗑</button></div>
   `).join('');
 }
 
-window.removeAccNew = (i) => {
-  tempNewProductAccs.splice(i, 1);
-  renderAccListNew();
-};
+window.removeAccNew = (i) => { tempNewProductAccs.splice(i, 1); renderAccListNew(); };
 
-// ============ THÊM ACC VÀO SP CŨ ============
 window.openAddAcc = async (id, name) => {
   tempAccProductId = id;
-  tempAccList = [];
-  // Lấy acc cũ
   const snap = await get(ref(db, 'products/' + id));
   const p = snap.val();
   tempAccList = [...(p.accounts || [])];
-  
   document.getElementById('addAccModalContent').innerHTML = `
     <h2>➕ Thêm acc vào "${name}"</h2>
-    <p style="font-size:13px;color:#9ca3af;margin-bottom:12px">Nhập từng acc vào ô bên dưới, bấm "Thêm acc vào danh sách"</p>
+    <p style="font-size:13px;color:#9ca3af;margin-bottom:12px">Nhập từng acc vào ô bên dưới</p>
     <div id="accListBox2" class="acc-list"></div>
     <input id="singleAccInput2" placeholder="Nhập acc: user|pass">
     <button class="btn btn-secondary" onclick="addSingleAccExisting()" style="margin-bottom:12px">➕ Thêm vào danh sách</button>
     <button class="btn" onclick="saveAccToProduct()">💾 Lưu tất cả</button>
-    <button class="btn btn-secondary" onclick="closeModal('addAccModal')" style="margin-top:8px">Hủy</button>
-  `;
+    <button class="btn btn-secondary" onclick="closeModal('addAccModal')" style="margin-top:8px">Hủy</button>`;
   renderAccList2();
   document.getElementById('addAccModal').classList.add('show');
 };
@@ -816,15 +1033,9 @@ window.openAddAcc = async (id, name) => {
 function renderAccList2() {
   const box = document.getElementById('accListBox2');
   if (!box) return;
-  if (tempAccList.length === 0) {
-    box.innerHTML = '<div class="acc-empty">Chưa có acc nào</div>';
-    return;
-  }
+  if (tempAccList.length === 0) { box.innerHTML = '<div class="acc-empty">Chưa có acc nào</div>'; return; }
   box.innerHTML = tempAccList.map((a, i) => `
-    <div class="acc-item">
-      <span>${a}</span>
-      <button onclick="removeAcc2(${i})">🗑</button>
-    </div>
+    <div class="acc-item"><span>${a}</span><button onclick="removeAcc2(${i})">🗑</button></div>
   `).join('');
 }
 
@@ -837,10 +1048,7 @@ window.addSingleAccExisting = () => {
   window.notif('Đã thêm acc');
 };
 
-window.removeAcc2 = (i) => {
-  tempAccList.splice(i, 1);
-  renderAccList2();
-};
+window.removeAcc2 = (i) => { tempAccList.splice(i, 1); renderAccList2(); };
 
 window.saveAccToProduct = async () => {
   await update(ref(db, 'products/' + tempAccProductId), { accounts: tempAccList });
@@ -849,14 +1057,13 @@ window.saveAccToProduct = async () => {
   renderAdminPanel();
 };
 
-// ============ SAVE SETTINGS + ADD PRODUCT ============
 window.saveBankInfo = async () => {
   const bank = document.getElementById('setBank').value.trim();
   const stk = document.getElementById('setStk').value.trim();
   const owner = document.getElementById('setOwner').value.trim();
   const prefix = document.getElementById('setPrefix').value.trim();
-  await set(ref(db, 'settings/bank'), { bank, stk, owner, prefix });
-  bankInfo = { bank, stk, owner, prefix };
+  await update(ref(db, 'settings/bank'), { bank, stk, owner, prefix });
+  bankInfo = { ...bankInfo, bank, stk, owner, prefix };
   window.notif('Đã lưu!');
 };
 
@@ -877,23 +1084,6 @@ window.deleteProduct = async (id) => {
   if (!confirm('Xóa sản phẩm này?')) return;
   await remove(ref(db, 'products/' + id));
   window.notif('Đã xóa');
-  renderAdminPanel();
-};
-
-window.approveDeposit = async (depositId, uid, amount) => {
-  const snap = await get(ref(db, 'users/' + uid));
-  const u = snap.val();
-  if (!u) return window.notif('User không tồn tại', true);
-  await update(ref(db, 'users/' + uid), { balance: (u.balance || 0) + amount });
-  await update(ref(db, 'deposits/' + depositId), { status: 'approved', approvedAt: Date.now() });
-  window.notif('Đã duyệt +' + amount.toLocaleString() + 'đ');
-  renderAdminPanel();
-};
-
-window.rejectDeposit = async (depositId) => {
-  if (!confirm('Từ chối đơn này?')) return;
-  await update(ref(db, 'deposits/' + depositId), { status: 'rejected' });
-  window.notif('Đã từ chối');
   renderAdminPanel();
 };
 
