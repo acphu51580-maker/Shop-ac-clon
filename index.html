@@ -11,8 +11,7 @@
   header {
     background:linear-gradient(135deg,#00c853 0%,#00a844 100%);
     padding:14px 20px; display:flex; justify-content:space-between; align-items:center;
-    position:sticky; top:0; z-index:100;
-    box-shadow:0 4px 20px rgba(0,200,83,.35);
+    position:sticky; top:0; z-index:100; box-shadow:0 4px 20px rgba(0,200,83,.35);
   }
   .logo { font-size:19px; font-weight:800; cursor:pointer; user-select:none; display:flex; align-items:center; gap:8px; color:#fff; letter-spacing:.5px; }
   .logo span { color:#ffd700; }
@@ -22,8 +21,7 @@
     width:42px; height:42px; border-radius:50%; background:#fff; color:#00a844;
     display:flex; align-items:center; justify-content:center;
     font-weight:800; font-size:18px; cursor:pointer;
-    border:2.5px solid #ffd700; box-shadow:0 4px 12px rgba(0,0,0,.3);
-    transition:.2s;
+    border:2.5px solid #ffd700; box-shadow:0 4px 12px rgba(0,0,0,.3); transition:.2s;
   }
   .user-icon:hover { transform:scale(1.08); }
   
@@ -45,10 +43,7 @@
     width:100%; height:100%; display:flex; align-items:center; justify-content:center;
     font-size:60px; background:linear-gradient(135deg,#1f2937,#131826);
   }
-  .card .price-bar {
-    padding:8px 10px; background:linear-gradient(135deg,#0a0e17,#131826);
-    text-align:center; border-top:1px solid #1f2937;
-  }
+  .card .price-bar { padding:8px 10px; background:linear-gradient(135deg,#0a0e17,#131826); text-align:center; border-top:1px solid #1f2937; }
   .card .price-bar .price { color:#ffd700; font-size:15px; font-weight:800; }
   .card .out-label {
     position:absolute; top:8px; left:8px; background:rgba(239,68,68,.95); color:#fff;
@@ -65,11 +60,7 @@
   .rank-section { margin-top:30px; }
   .rank-section h2 { color:#ffd700; font-size:20px; font-weight:800; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
   .rank-list { display:flex; flex-direction:column; gap:8px; }
-  .rank-item {
-    background:#131826; border-radius:12px; padding:12px 14px;
-    display:flex; align-items:center; gap:12px;
-    border:1px solid #1f2937; transition:.2s;
-  }
+  .rank-item { background:#131826; border-radius:12px; padding:12px 14px; display:flex; align-items:center; gap:12px; border:1px solid #1f2937; transition:.2s; }
   .rank-item:hover { border-color:#00c853; }
   .rank-item.top1 { background:linear-gradient(135deg,#3d2f00,#131826); border-color:#ffd700; box-shadow:0 4px 16px rgba(255,215,0,.2); }
   .rank-item.top2 { background:linear-gradient(135deg,#2a2a2a,#131826); border-color:#c0c0c0; }
@@ -77,8 +68,7 @@
   .rank-item .rank-num {
     width:36px; height:36px; border-radius:50%; background:#0a0e17;
     display:flex; align-items:center; justify-content:center;
-    font-weight:800; font-size:15px; color:#ffd700; flex-shrink:0;
-    border:1.5px solid #1f2937;
+    font-weight:800; font-size:15px; color:#ffd700; flex-shrink:0; border:1.5px solid #1f2937;
   }
   .rank-item.top1 .rank-num { background:linear-gradient(135deg,#ffd700,#ffb700); color:#000; border-color:#ffd700; }
   .rank-item.top2 .rank-num { background:linear-gradient(135deg,#e0e0e0,#a0a0a0); color:#000; border-color:#e0e0e0; }
@@ -100,19 +90,9 @@
     display:flex; align-items:center; justify-content:center;
     font-size:26px; cursor:pointer;
     box-shadow:0 8px 24px rgba(0,200,83,.5);
-    z-index:998; transition:.2s;
-    border:3px solid #fff;
+    z-index:998; transition:.2s; border:3px solid #fff;
   }
   .contact-float:hover { transform:scale(1.1); }
-  .contact-float::after {
-    content:''; position:absolute; inset:-3px;
-    border-radius:50%; border:2px solid #00c853;
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0% { transform:scale(1); opacity:1; }
-    100% { transform:scale(1.4); opacity:0; }
-  }
   
   .modal-bg { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; justify-content:center; align-items:center; z-index:999; padding:15px; backdrop-filter:blur(4px); }
   .modal-bg.show { display:flex; animation:fadeIn .2s; }
@@ -134,13 +114,12 @@
   .modal .btn {
     width:100%; padding:12px; background:linear-gradient(135deg,#00c853,#00a844);
     color:#fff; border:none; border-radius:10px;
-    font-weight:700; cursor:pointer; font-size:15px; margin-top:5px;
-    transition:.2s; box-shadow:0 4px 12px rgba(0,200,83,.3);
+    font-weight:700; cursor:pointer; font-size:15px; margin-top:5px; transition:.2s;
+    box-shadow:0 4px 12px rgba(0,200,83,.3);
   }
   .modal .btn:hover { transform:translateY(-2px); }
   .modal .btn-secondary { background:#1f2937; box-shadow:none; }
   .modal .btn-danger { background:linear-gradient(135deg,#ef4444,#dc2626); }
-  .modal .btn-warning { background:linear-gradient(135deg,#f59e0b,#d97706); }
   
   .link-small { text-align:center; margin-top:14px; font-size:13px; }
   .link-small a { color:#ffd700; cursor:pointer; text-decoration:none; font-weight:600; }
@@ -153,8 +132,7 @@
   .panel-tabs-v button {
     padding:12px 16px; background:#0a0e17; color:#e8eaed;
     border:1.5px solid #1f2937; border-radius:10px;
-    cursor:pointer; font-size:14px; text-align:left; font-weight:600;
-    transition:.2s;
+    cursor:pointer; font-size:14px; text-align:left; font-weight:600; transition:.2s;
   }
   .panel-tabs-v button:hover { background:#1f2937; }
   .panel-tabs-v button.active { background:linear-gradient(135deg,#00c853,#00a844); border-color:#00c853; color:#fff; }
@@ -239,7 +217,6 @@
   <div id="rankSection"></div>
 </main>
 
-<!-- NÚT LIÊN HỆ -->
 <div class="contact-float" onclick="contactAdmin()" title="Liên hệ Admin">💬</div>
 
 <!-- AUTH MODAL -->
@@ -299,7 +276,7 @@
       <button onclick="showAdminTab('products')" id="atabProducts">📦 Quản lý sản phẩm</button>
       <button onclick="showAdminTab('users')" id="atabUsers">👥 Danh sách user</button>
       <button onclick="showAdminTab('deposits')" id="atabDeposits">💳 Duyệt nạp tiền</button>
-      <button onclick="showAdminTab('deposit')" id="atabDeposit">💰 Nạp tiền</button>
+      <button onclick="showAdminTab('adminDeposit')" id="atabAdminDeposit">💰 Nạp tiền</button>
       <button onclick="showAdminTab('settings')" id="atabSettings">⚙️ Cài đặt shop</button>
     </div>
     <div id="adminContent"></div>
@@ -373,12 +350,10 @@ let tempAccList = [];
 let tempAccProductId = '';
 let tempNewProductAccs = [];
 
-// SESSION
 function saveSession(name) { localStorage.setItem('shop_user', name); }
 function getSession() { return localStorage.getItem('shop_user'); }
 function clearSession() { localStorage.removeItem('shop_user'); }
 
-// NOTIF
 window.notif = (msg, isError=false) => {
   const el = document.createElement('div');
   el.className = 'notif' + (isError ? ' error' : '');
@@ -387,11 +362,9 @@ window.notif = (msg, isError=false) => {
   setTimeout(() => el.remove(), 2800);
 };
 
-// CONTACT
 window.contactAdmin = () => document.getElementById('contactModal').classList.add('show');
 window.openZalo = () => { window.open(ZALO_LINK, '_blank'); closeModal('contactModal'); };
 
-// SETTINGS
 onValue(ref(db, 'settings/bank'), (snap) => { if (snap.val()) bankInfo = { ...bankInfo, ...snap.val() }; });
 onValue(ref(db, 'settings/logo'), (snap) => { shopLogo = snap.val() || ''; renderLogo(); });
 
@@ -423,7 +396,7 @@ window.doAuth = async () => {
   
   if (isRegisterMode) {
     if (existing) return window.notif('Tên đã tồn tại!', true);
-    await set(ref(db, 'users/' + key), { name, pass, balance: 0, totalDeposited: 0, cart: [], history: [], createdAt: Date.now() });
+    await set(ref(db, 'users/' + key), { name, pass, balance: 0, totalDeposited: 0, cart: [], history: [], deposits: [], createdAt: Date.now() });
     window.notif('Đăng ký thành công!');
   } else {
     if (!existing) return window.notif('Tên không tồn tại!', true);
@@ -448,7 +421,7 @@ window.doAdminLogin = async () => {
   const u = document.getElementById('adminUser').value.trim();
   const p = document.getElementById('adminPass').value;
   if (u !== ADMIN_USER || p !== ADMIN_PASS) return window.notif('Sai tên hoặc mật khẩu admin!', true);
-  await set(ref(db, 'users/_admin_'), { name: 'ADMIN', pass: ADMIN_PASS, balance: 0, totalDeposited: 0, cart: [], history: [], isAdmin: true, createdAt: Date.now() });
+  await set(ref(db, 'users/_admin_'), { name: 'ADMIN', pass: ADMIN_PASS, balance: 0, totalDeposited: 0, cart: [], history: [], deposits: [], isAdmin: true, createdAt: Date.now() });
   saveSession('_admin_');
   await loadCurrentUser();
   closeModal('adminLoginModal');
@@ -590,9 +563,7 @@ window.createDepositCode = async () => {
   if (!amt || amt < 2000) return window.notif('Số tiền tối thiểu 2.000đ', true);
   const code = bankInfo.prefix + currentUser.key.slice(0,5).toUpperCase() + '-' + amt;
   
-  // Lưu đơn nạp
   await push(ref(db, 'deposits'), { uid: currentUser.key, name: userDataCache.name, amount: amt, code: code, status: 'pending', time: Date.now() });
-  // Lưu vào lịch sử user
   const deps = userDataCache.deposits || [];
   deps.push({ amount: amt, code: code, status: 'pending', time: Date.now() });
   await update(ref(db, 'users/' + currentUser.key), { deposits: deps });
@@ -694,7 +665,7 @@ window.viewProduct = async (id) => {
   const out = stock === 0;
   document.getElementById('productModalContent').innerHTML = `
     <h2>${p.name}</h2>
-    ${p.image ? `<img class="detail-img" src="${p.image}">` : `<div class="card-icon" style="border-radius:12px;margin-bottom:14px">${p.icon||'🎮'}</div>`}
+    ${p.image ? `<img class="detail-img" src="${p.image}">` : `<div class="card-icon" style="border-radius:12px;margin-bottom:14px;padding:60px 0;text-align:center;font-size:80px;background:#0a0e17">${p.icon||'🎮'}</div>`}
     <div style="font-size:24px;color:#ffd700;font-weight:800;margin-bottom:12px">${(p.price||0).toLocaleString()}đ</div>
     <div class="detail-desc">${p.description || 'Không có mô tả'}</div>
     <p style="color:#9ca3af;font-size:13px;margin-bottom:16px">${out ? '<b style="color:#ef4444">❌ Hết hàng</b>' : `Còn lại: <b style="color:#00c853">${stock}</b> acc`}</p>
@@ -778,7 +749,7 @@ window.uploadLogo = async (input) => {
 };
 
 window.resetLogo = async () => {
-  if (!confirm('Xóa logo, dùng chữ mặc định?')) return;
+  if (!confirm('Xóa logo?')) return;
   await remove(ref(db, 'settings/logo'));
   shopLogo = '';
   renderLogo();
@@ -794,6 +765,7 @@ window.uploadQR = async (input) => {
     await update(ref(db, 'settings/bank'), { qr: url });
     bankInfo.qr = url;
     document.getElementById('qrStatus').textContent = '✅ Đã cập nhật QR!';
+    renderAdminPanel();
   } catch (e) {
     document.getElementById('qrStatus').textContent = '❌ Lỗi: ' + e.message;
   }
@@ -815,8 +787,10 @@ window.openAdminPanel = () => {
 
 window.showAdminTab = (tab) => {
   currentAdminTab = tab;
-  ['add','products','users','deposits','deposit','settings'].forEach(t => {
-    const el = document.getElementById('atab' + t.charAt(0).toUpperCase() + t.slice(1));
+  const tabs = ['add','products','users','deposits','adminDeposit','settings'];
+  const ids = ['atabAdd','atabProducts','atabUsers','atabDeposits','atabAdminDeposit','atabSettings'];
+  tabs.forEach((t, i) => {
+    const el = document.getElementById(ids[i]);
     if (el) el.classList.toggle('active', t === tab);
   });
   renderAdminPanel();
@@ -824,6 +798,8 @@ window.showAdminTab = (tab) => {
 
 async function renderAdminPanel() {
   const c = document.getElementById('adminContent');
+  if (!c) return;
+  
   if (currentAdminTab === 'add') {
     tempNewProductAccs = [];
     c.innerHTML = `
@@ -862,11 +838,15 @@ async function renderAdminPanel() {
     const snap = await get(ref(db, 'users'));
     const data = snap.val() || {};
     const list = Object.entries(data).filter(([k]) => !k.startsWith('_admin')).map(([id, u]) => ({ id, ...u }));
-    c.innerHTML = list.length === 0 ? '<div class="empty">Chưa có user</div>' : list.map(u => `
+    if (list.length === 0) {
+      c.innerHTML = '<div class="empty">Chưa có user nào đăng ký</div>';
+      return;
+    }
+    c.innerHTML = list.map(u => `
       <div class="item-box">
         <h4>${u.name || 'No name'} ${u.isAdmin ? '👑' : ''}</h4>
         <p style="color:#ffd700">Số dư: ${(u.balance||0).toLocaleString()}đ</p>
-        <p style="color:#.total00c853;Depfont-size:12px">Tổng nạp: ${(uosited||0).toLocaleString()}đ</p>
+        <p style="color:#00c853;font-size:12px">Tổng nạp: ${(u.totalDeposited||0).toLocaleString()}đ</p>
       </div>`).join('');
   } else if (currentAdminTab === 'deposits') {
     const snap = await get(ref(db, 'deposits'));
@@ -879,12 +859,11 @@ async function renderAdminPanel() {
         <p style="font-size:11px;color:#6b7280">Mã: ${d.code || 'N/A'}</p>
         <p style="font-size:11px;color:#6b7280">${new Date(d.time).toLocaleString('vi-VN')}</p>
         <div style="display:flex;gap:6px;margin-top:8px">
-          <button class="btn" style="padding:8px;font-size:12px;flex:1" onclick="approveDeposit('${d.id}','${d.uid}',${d.amount})">✅ Duyệt +${(d.amount||0).toLocaleString()}đ</button>
+          <button class="btn" style="padding:8px;font-size:12px;flex:1" onclick="approveDeposit('${d.id}','${d.uid}',${d.amount})">✅ Duyệt</button>
           <button class="btn btn-danger" style="padding:8px;font-size:12px;flex:1" onclick="rejectDepositUI('${d.id}')">❌ Hủy đơn</button>
         </div>
       </div>`).join('');
-  } else if (currentAdminTab === 'deposit') {
-    // Admin nạp tiền cho chính mình
+  } else if (currentAdminTab === 'adminDeposit') {
     const snap = await get(ref(db, 'users/_admin_'));
     const u = snap.val() || {};
     c.innerHTML = `
@@ -894,7 +873,7 @@ async function renderAdminPanel() {
       </div>
       <div class="deposit-box">
         <h4 style="color:#ffd700;margin-bottom:12px;font-size:15px">💰 Nạp tiền vào ví Admin</h4>
-        <p style="font-size:13px;color:#9ca3af;margin-bottom:12px">Nhập số tiền muốn nạp (tối thiểu 2.000đ):</p>
+        <p style="font-size:13px;color:#9ca3af;margin-bottom:12px">Nhập số tiền (tối thiểu 2.000đ):</p>
         <input type="number" id="adminDepositAmount" placeholder="Nhập số tiền" min="2000">
         <button class="btn" onclick="adminDepositSelf()">➕ Cộng tiền vào ví</button>
       </div>`;
@@ -935,9 +914,8 @@ window.adminDepositSelf = async () => {
   renderAdminPanel();
 };
 
-// HỦY ĐƠN NẠP
 window.rejectDepositUI = (depositId) => {
-  const reason = prompt('Nhập lý do hủy đơn:\n(VD: CK thiếu, CK sai nội dung...)', 'CK thiếu, vui lòng liên hệ admin ' + ADMIN_PHONE);
+  const reason = prompt('Nhập lý do hủy đơn:', 'CK thiếu, vui lòng liên hệ admin ' + ADMIN_PHONE);
   if (reason === null) return;
   rejectDeposit(depositId, reason);
 };
@@ -948,16 +926,17 @@ window.rejectDeposit = async (depositId, reason) => {
   if (!d) return;
   await update(ref(db, 'deposits/' + depositId), { status: 'rejected', reason: reason || 'Không có lý do', rejectedAt: Date.now() });
   
-  // Cập nhật trong lịch sử user
   const uSnap = await get(ref(db, 'users/' + d.uid));
   const u = uSnap.val();
   if (u && u.deposits) {
-    const idx = u.deposits.findIndex(x => x.code === d.code && x.time === d.time);
-    if (idx >= 0) {
-      u.deposits[idx].status = 'rejected';
-      u.deposits[idx].reason = reason;
-      await update(ref(db, 'users/' + d.uid), { deposits: u.deposits });
+    for (let i = 0; i < u.deposits.length; i++) {
+      if (u.deposits[i].code === d.code && u.deposits[i].time === d.time) {
+        u.deposits[i].status = 'rejected';
+        u.deposits[i].reason = reason;
+        break;
+      }
     }
+    await update(ref(db, 'users/' + d.uid), { deposits: u.deposits });
   }
   window.notif('Đã hủy đơn!');
   renderAdminPanel();
@@ -977,13 +956,14 @@ window.approveDeposit = async (depositId, uid, amount) => {
   });
   await update(ref(db, 'deposits/' + depositId), { status: 'approved', approvedAt: Date.now() });
   
-  // Cập nhật trong lịch sử user
   if (u.deposits) {
-    const idx = u.deposits.findIndex(x => x.code === d.code && x.time === d.time);
-    if (idx >= 0) {
-      u.deposits[idx].status = 'approved';
-      await update(ref(db, 'users/' + uid), { deposits: u.deposits });
+    for (let i = 0; i < u.deposits.length; i++) {
+      if (u.deposits[i].code === d.code && u.deposits[i].time === d.time) {
+        u.deposits[i].status = 'approved';
+        break;
+      }
     }
+    await update(ref(db, 'users/' + uid), { deposits: u.deposits });
   }
   window.notif('Đã duyệt +' + amount.toLocaleString() + 'đ');
   renderAdminPanel();
@@ -1087,7 +1067,6 @@ window.deleteProduct = async (id) => {
   renderAdminPanel();
 };
 
-// INIT
 loadCurrentUser();
 updateAuthUI();
 </script>
