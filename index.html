@@ -27,45 +27,84 @@
   }
   .user-icon:hover { transform:scale(1.08); }
   
-  main { padding:20px; max-width:1200px; margin:0 auto; }
+  main { padding:14px; max-width:1200px; margin:0 auto; }
   
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:18px; margin-top:10px; }
-  .card {
-    background:#131826; border-radius:16px; overflow:hidden;
-    border:1px solid #1f2937; transition:.3s ease; cursor:pointer;
-    box-shadow:0 4px 12px rgba(0,0,0,.2);
+  /* GRID: 2 CỘT TRÊN MOBILE */
+  .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px; }
+  @media (min-width:640px) {
+    .grid { grid-template-columns:repeat(3,1fr); gap:14px; }
   }
-  .card:hover { transform:translateY(-6px); border-color:#00c853; box-shadow:0 12px 28px rgba(0,200,83,.3); }
-  .card img { width:100%; height:170px; object-fit:cover; background:#1f2937; }
-  .card-icon { width:100%; height:170px; display:flex; align-items:center; justify-content:center; font-size:75px; background:linear-gradient(135deg,#1f2937,#131826); }
-  .card-body { padding:14px; }
-  .card-body h3 { font-size:16px; margin-bottom:8px; font-weight:700; color:#fff; }
-  .card-body .price { color:#ffd700; font-size:19px; font-weight:800; }
-  .card-body .stock { font-size:12px; color:#6b7280; margin-top:6px; display:flex; align-items:center; gap:4px; }
-  .card-body .stock.out { color:#ef4444; font-weight:600; }
-  .card.out-stock { opacity:.65; }
-  .card.out-stock:hover { border-color:#ef4444; transform:none; }
+  @media (min-width:1024px) {
+    .grid { grid-template-columns:repeat(4,1fr); gap:16px; }
+  }
   
+  /* CARD: HÌNH CHỮ NHẬT DỌC */
+  .card {
+    background:#131826; border-radius:12px; overflow:hidden;
+    border:1px solid #1f2937; transition:.25s ease; cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+    position:relative;
+  }
+  .card:hover { transform:translateY(-4px); border-color:#00c853; box-shadow:0 10px 24px rgba(0,200,83,.3); }
+  .card .img-wrap {
+    width:100%;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    background:#1f2937;
+    position:relative;
+  }
+  .card .img-wrap img { width:100%; height:100%; object-fit:cover; }
+  .card .img-wrap .icon-placeholder {
+    width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+    font-size:60px; background:linear-gradient(135deg,#1f2937,#131826);
+  }
+  .card .price-bar {
+    padding:8px 10px;
+    background:linear-gradient(135deg,#0a0e17,#131826);
+    text-align:center;
+    border-top:1px solid #1f2937;
+  }
+  .card .price-bar .price {
+    color:#ffd700; font-size:15px; font-weight:800;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  /* Nhãn hết hàng phủ lên ảnh */
+  .card .out-label {
+    position:absolute; top:8px; left:8px;
+    background:rgba(239,68,68,.95); color:#fff;
+    padding:3px 8px; border-radius:6px;
+    font-size:10px; font-weight:800; letter-spacing:.3px;
+  }
+  .card .stock-label {
+    position:absolute; top:8px; right:8px;
+    background:rgba(0,200,83,.95); color:#fff;
+    padding:3px 8px; border-radius:6px;
+    font-size:10px; font-weight:800; letter-spacing:.3px;
+  }
+  .card.out-stock .img-wrap { filter:grayscale(.6); }
+  .card.out-stock:hover { border-color:#ef4444; }
+  
+  /* MODAL */
   .modal-bg { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; justify-content:center; align-items:center; z-index:999; padding:15px; backdrop-filter:blur(4px); }
   .modal-bg.show { display:flex; animation:fadeIn .2s; }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   .modal { 
-    background:#131826; border-radius:18px; padding:26px; max-width:460px; width:100%;
+    background:#131826; border-radius:18px; padding:22px; max-width:460px; width:100%;
     max-height:90vh; overflow-y:auto; border:1px solid #1f2937;
     box-shadow:0 20px 60px rgba(0,0,0,.6); animation:slideUp .3s;
   }
   @keyframes slideUp { from { transform:translateY(30px); opacity:0; } to { transform:translateY(0); opacity:1; } }
-  .modal h2 { margin-bottom:18px; color:#00c853; font-size:22px; font-weight:800; }
+  .modal h2 { margin-bottom:16px; color:#00c853; font-size:20px; font-weight:800; }
   .modal input, .modal textarea, .modal select {
-    width:100%; padding:13px 15px; background:#0a0e17;
+    width:100%; padding:12px 14px; background:#0a0e17;
     border:1.5px solid #1f2937; border-radius:10px;
-    color:#fff; margin-bottom:12px; font-size:14px;
+    color:#fff; margin-bottom:10px; font-size:14px;
     transition:.2s;
   }
   .modal input:focus, .modal textarea:focus { outline:none; border-color:#00c853; box-shadow:0 0 0 3px rgba(0,200,83,.15); }
-  .modal textarea { min-height:85px; resize:vertical; font-family:inherit; }
+  .modal textarea { min-height:80px; resize:vertical; font-family:inherit; }
   .modal .btn {
-    width:100%; padding:13px; background:linear-gradient(135deg,#00c853,#00a844);
+    width:100%; padding:12px; background:linear-gradient(135deg,#00c853,#00a844);
     color:#fff; border:none; border-radius:10px;
     font-weight:700; cursor:pointer; font-size:15px; margin-top:5px;
     transition:.2s; box-shadow:0 4px 12px rgba(0,200,83,.3);
@@ -84,7 +123,7 @@
   
   .panel-tabs-v { display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
   .panel-tabs-v button {
-    padding:13px 16px; background:#0a0e17; color:#e8eaed;
+    padding:12px 16px; background:#0a0e17; color:#e8eaed;
     border:1.5px solid #1f2937; border-radius:10px;
     cursor:pointer; font-size:14px; text-align:left; font-weight:600;
     transition:.2s;
@@ -92,21 +131,21 @@
   .panel-tabs-v button:hover { background:#1f2937; }
   .panel-tabs-v button.active { background:linear-gradient(135deg,#00c853,#00a844); border-color:#00c853; color:#fff; box-shadow:0 4px 12px rgba(0,200,83,.3); }
   
-  .item-box { background:#0a0e17; padding:14px; border-radius:12px; margin-bottom:10px; border-left:3px solid #00c853; }
-  .item-box h4 { font-size:14px; margin-bottom:6px; color:#ffd700; font-weight:700; }
+  .item-box { background:#0a0e17; padding:12px; border-radius:10px; margin-bottom:10px; border-left:3px solid #00c853; }
+  .item-box h4 { font-size:14px; margin-bottom:5px; color:#ffd700; font-weight:700; }
   .item-box p { font-size:13px; color:#9ca3af; }
   
-  .balance { background:linear-gradient(135deg,#00c853,#00a844); padding:22px; border-radius:14px; text-align:center; margin-bottom:18px; box-shadow:0 8px 20px rgba(0,200,83,.25); }
+  .balance { background:linear-gradient(135deg,#00c853,#00a844); padding:20px; border-radius:14px; text-align:center; margin-bottom:18px; box-shadow:0 8px 20px rgba(0,200,83,.25); }
   .balance .label { font-size:13px; color:rgba(255,255,255,.85); }
-  .balance .num { font-size:34px; font-weight:800; color:#ffd700; margin-top:4px; text-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .balance .num { font-size:32px; font-weight:800; color:#ffd700; margin-top:4px; text-shadow:0 2px 8px rgba(0,0,0,.3); }
   
   .admin-badge { background:linear-gradient(135deg,#ffd700,#ffb700); color:#000; padding:5px 11px; border-radius:14px; font-size:11px; font-weight:800; letter-spacing:.5px; }
   
-  .deposit-box { background:#0a0e17; padding:16px; border-radius:12px; margin-bottom:14px; border:1.5px solid #1f2937; }
+  .deposit-box { background:#0a0e17; padding:14px; border-radius:12px; margin-bottom:14px; border:1.5px solid #1f2937; }
   .deposit-box .code { 
-    background:#131826; padding:14px; border-radius:10px;
-    font-family:'Courier New',monospace; font-size:16px; color:#ffd700;
-    margin:10px 0; word-break:break-all; text-align:center;
+    background:#131826; padding:12px; border-radius:10px;
+    font-family:'Courier New',monospace; font-size:15px; color:#ffd700;
+    margin:8px 0; word-break:break-all; text-align:center;
     border:1.5px dashed #00c853; font-weight:700;
   }
   
@@ -121,12 +160,12 @@
   
   .empty { text-align:center; color:#4b5563; padding:60px 20px; font-style:italic; font-size:15px; }
   
-  .detail-img { width:100%; max-height:280px; object-fit:cover; border-radius:12px; margin-bottom:16px; }
-  .detail-desc { background:#0a0e17; padding:14px; border-radius:10px; font-size:14px; color:#9ca3af; margin:14px 0; white-space:pre-wrap; line-height:1.6; }
+  .detail-img { width:100%; max-height:280px; object-fit:cover; border-radius:12px; margin-bottom:14px; }
+  .detail-desc { background:#0a0e17; padding:12px; border-radius:10px; font-size:14px; color:#9ca3af; margin:12px 0; white-space:pre-wrap; line-height:1.6; }
   
   .img-preview { width:100%; max-height:180px; object-fit:contain; border-radius:10px; margin-bottom:10px; background:#0a0e17; display:none; }
   .upload-btn { 
-    background:#0a0e17; color:#e8eaed; padding:13px; border-radius:10px;
+    background:#0a0e17; color:#e8eaed; padding:12px; border-radius:10px;
     text-align:center; cursor:pointer; margin-bottom:12px; font-size:14px;
     border:2px dashed #00c853; font-weight:600; transition:.2s;
   }
@@ -135,11 +174,25 @@
   
   .amount-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
   .amount-grid button {
-    padding:11px; background:#0a0e17; color:#e8eaed;
+    padding:10px; background:#0a0e17; color:#e8eaed;
     border:1.5px solid #1f2937; border-radius:9px;
     cursor:pointer; font-size:13px; font-weight:600; transition:.2s;
   }
   .amount-grid button:hover { background:#1f2937; border-color:#00c853; color:#00c853; }
+  
+  /* LIST ACC */
+  .acc-list { background:#0a0e17; border-radius:10px; padding:10px; margin-bottom:12px; max-height:200px; overflow-y:auto; }
+  .acc-list .acc-item {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:8px 10px; background:#131826; border-radius:8px;
+    margin-bottom:6px; font-family:monospace; font-size:13px;
+  }
+  .acc-list .acc-item span { color:#00c853; word-break:break-all; flex:1; margin-right:8px; }
+  .acc-list .acc-item button {
+    background:#ef4444; color:#fff; border:none; border-radius:6px;
+    padding:4px 8px; font-size:11px; cursor:pointer; font-weight:700;
+  }
+  .acc-list .acc-empty { text-align:center; color:#4b5563; font-size:12px; padding:10px; font-style:italic; }
 </style>
 </head>
 <body>
@@ -262,6 +315,13 @@ let userDataCache = {};
 let bankInfo = { bank: 'MBBank', stk: '0865561731', owner: 'PHUC', prefix: 'nap-phuc-' };
 let shopLogo = '';
 
+// Biến tạm khi thêm acc vào SP cũ
+let tempAccList = [];
+let tempAccProductId = '';
+
+// Biến tạm khi tạo SP mới
+let tempNewProductAccs = [];
+
 // SESSION
 function saveSession(name) { localStorage.setItem('shop_user', name); }
 function getSession() { return localStorage.getItem('shop_user'); }
@@ -337,7 +397,7 @@ window.doAdminLogin = async () => {
   saveSession('_admin_');
   await loadCurrentUser();
   closeModal('adminLoginModal');
-  document.getElementById('authModal').classList.remove('show'); // Ẩn form login
+  document.getElementById('authModal').classList.remove('show');
   document.getElementById('adminUser').value = '';
   document.getElementById('adminPass').value = '';
   window.notif('👑 Chào Admin!');
@@ -379,7 +439,6 @@ async function loadCurrentUser() {
   currentUser = { key, ...data };
   userDataCache = data;
   renderUserArea();
-  // Nếu là admin → ẩn form login, tự mở admin panel
   if (data.isAdmin) {
     document.getElementById('authModal').classList.remove('show');
     setTimeout(() => window.openAdminPanel(), 400);
@@ -494,11 +553,12 @@ window.loadProducts = () => {
       const out = stock === 0;
       return `
       <div class="card ${out ? 'out-stock' : ''}" onclick="viewProduct('${p.id}')">
-        ${p.image ? `<img src="${p.image}">` : `<div class="card-icon">${p.icon || '🎮'}</div>`}
-        <div class="card-body">
-          <h3>${p.name}</h3>
+        <div class="img-wrap">
+          ${p.image ? `<img src="${p.image}">` : `<div class="icon-placeholder">${p.icon || '🎮'}</div>`}
+          ${out ? '<div class="out-label">HẾT HÀNG</div>' : `<div class="stock-label">${stock} ACC</div>`}
+        </div>
+        <div class="price-bar">
           <div class="price">${(p.price||0).toLocaleString()}đ</div>
-          <div class="stock ${out ? 'out' : ''}">${out ? '❌ Hết hàng' : '📦 Còn: ' + stock + ' acc'}</div>
         </div>
       </div>`;
     }).join('') + '</div>';
@@ -513,7 +573,7 @@ window.viewProduct = async (id) => {
   const out = stock === 0;
   document.getElementById('productModalContent').innerHTML = `
     <h2>${p.name}</h2>
-    ${p.image ? `<img class="detail-img" src="${p.image}">` : `<div class="card-icon" style="border-radius:12px;margin-bottom:16px">${p.icon||'🎮'}</div>`}
+    ${p.image ? `<img class="detail-img" src="${p.image}">` : `<div class="card-icon" style="border-radius:12px;margin-bottom:14px">${p.icon||'🎮'}</div>`}
     <div style="font-size:24px;color:#ffd700;font-weight:800;margin-bottom:12px">${(p.price||0).toLocaleString()}đ</div>
     <div class="detail-desc">${p.description || 'Không có mô tả'}</div>
     <p style="color:#9ca3af;font-size:13px;margin-bottom:16px">${out ? '<b style="color:#ef4444">❌ Hết hàng</b>' : `Còn lại: <b style="color:#00c853">${stock}</b> acc`}</p>
@@ -622,6 +682,7 @@ window.showAdminTab = (tab) => {
 async function renderAdminPanel() {
   const c = document.getElementById('adminContent');
   if (currentAdminTab === 'add') {
+    tempNewProductAccs = [];
     c.innerHTML = `
       <input id="pName" placeholder="Tên acc (VD: Acc FF Cao Thủ)">
       <div class="upload-btn" onclick="document.getElementById('pFile').click()">📷 Chọn ảnh từ máy</div>
@@ -632,8 +693,13 @@ async function renderAdminPanel() {
       <input id="pIcon" placeholder="Hoặc icon emoji (VD: 🎮🔥⚔️)">
       <input id="pPrice" type="number" placeholder="Giá (VNĐ)">
       <textarea id="pDesc" placeholder="Mô tả sản phẩm"></textarea>
-      <textarea id="pAccounts" placeholder="Danh sách acc FF (mỗi acc 1 dòng):&#10;user1|pass1&#10;user2|pass2"></textarea>
-      <button class="btn" onclick="addProduct()">➕ Tạo sản phẩm</button>`;
+      
+      <p style="color:#ffd700;font-size:13px;font-weight:700;margin:8px 0 8px">➕ Thêm acc vào SP (nhập từng acc):</p>
+      <div id="accListBox" class="acc-list"><div class="acc-empty">Chưa có acc nào</div></div>
+      <input id="singleAccInput" placeholder="Nhập acc: user|pass">
+      <button class="btn btn-secondary" onclick="addSingleAccNew()" style="margin-bottom:12px">➕ Thêm acc vào danh sách</button>
+      
+      <button class="btn" onclick="addProduct()">💾 Tạo sản phẩm</button>`;
   } else if (currentAdminTab === 'products') {
     const snap = await get(ref(db, 'products'));
     const data = snap.val() || {};
@@ -695,30 +761,95 @@ async function renderAdminPanel() {
   }
 }
 
-window.openAddAcc = (id, name) => {
+// ============ THÊM ACC VÀO SP MỚI (đang tạo) ============
+window.addSingleAccNew = () => {
+  const val = document.getElementById('singleAccInput').value.trim();
+  if (!val) return window.notif('Nhập acc trước', true);
+  tempNewProductAccs.push(val);
+  document.getElementById('singleAccInput').value = '';
+  renderAccListNew();
+  window.notif('Đã thêm acc');
+};
+
+function renderAccListNew() {
+  const box = document.getElementById('accListBox');
+  if (!box) return;
+  if (tempNewProductAccs.length === 0) {
+    box.innerHTML = '<div class="acc-empty">Chưa có acc nào</div>';
+    return;
+  }
+  box.innerHTML = tempNewProductAccs.map((a, i) => `
+    <div class="acc-item">
+      <span>${a}</span>
+      <button onclick="removeAccNew(${i})">🗑</button>
+    </div>
+  `).join('');
+}
+
+window.removeAccNew = (i) => {
+  tempNewProductAccs.splice(i, 1);
+  renderAccListNew();
+};
+
+// ============ THÊM ACC VÀO SP CŨ ============
+window.openAddAcc = async (id, name) => {
+  tempAccProductId = id;
+  tempAccList = [];
+  // Lấy acc cũ
+  const snap = await get(ref(db, 'products/' + id));
+  const p = snap.val();
+  tempAccList = [...(p.accounts || [])];
+  
   document.getElementById('addAccModalContent').innerHTML = `
     <h2>➕ Thêm acc vào "${name}"</h2>
-    <p style="font-size:13px;color:#9ca3af;margin-bottom:12px">Nhập acc FF mới, mỗi acc 1 dòng (dạng: user|pass)</p>
-    <textarea id="newAccs" placeholder="user1|pass1&#10;user2|pass2" style="min-height:120px"></textarea>
-    <button class="btn" onclick="addAccToProduct('${id}')">➕ Thêm acc</button>
-    <button class="btn btn-secondary" onclick="closeModal('addAccModal')" style="margin-top:8px">Đóng</button>
+    <p style="font-size:13px;color:#9ca3af;margin-bottom:12px">Nhập từng acc vào ô bên dưới, bấm "Thêm acc vào danh sách"</p>
+    <div id="accListBox2" class="acc-list"></div>
+    <input id="singleAccInput2" placeholder="Nhập acc: user|pass">
+    <button class="btn btn-secondary" onclick="addSingleAccExisting()" style="margin-bottom:12px">➕ Thêm vào danh sách</button>
+    <button class="btn" onclick="saveAccToProduct()">💾 Lưu tất cả</button>
+    <button class="btn btn-secondary" onclick="closeModal('addAccModal')" style="margin-top:8px">Hủy</button>
   `;
+  renderAccList2();
   document.getElementById('addAccModal').classList.add('show');
 };
 
-window.addAccToProduct = async (id) => {
-  const text = document.getElementById('newAccs').value.trim();
-  if (!text) return window.notif('Nhập acc FF', true);
-  const newAccs = text.split('\n').map(l => l.trim()).filter(l => l);
-  const snap = await get(ref(db, 'products/' + id));
-  const p = snap.val();
-  const oldAccs = p.accounts || [];
-  await update(ref(db, 'products/' + id), { accounts: [...oldAccs, ...newAccs] });
-  window.notif(`Đã thêm ${newAccs.length} acc!`);
+function renderAccList2() {
+  const box = document.getElementById('accListBox2');
+  if (!box) return;
+  if (tempAccList.length === 0) {
+    box.innerHTML = '<div class="acc-empty">Chưa có acc nào</div>';
+    return;
+  }
+  box.innerHTML = tempAccList.map((a, i) => `
+    <div class="acc-item">
+      <span>${a}</span>
+      <button onclick="removeAcc2(${i})">🗑</button>
+    </div>
+  `).join('');
+}
+
+window.addSingleAccExisting = () => {
+  const val = document.getElementById('singleAccInput2').value.trim();
+  if (!val) return window.notif('Nhập acc trước', true);
+  tempAccList.push(val);
+  document.getElementById('singleAccInput2').value = '';
+  renderAccList2();
+  window.notif('Đã thêm acc');
+};
+
+window.removeAcc2 = (i) => {
+  tempAccList.splice(i, 1);
+  renderAccList2();
+};
+
+window.saveAccToProduct = async () => {
+  await update(ref(db, 'products/' + tempAccProductId), { accounts: tempAccList });
+  window.notif('Đã lưu!');
   closeModal('addAccModal');
   renderAdminPanel();
 };
 
+// ============ SAVE SETTINGS + ADD PRODUCT ============
 window.saveBankInfo = async () => {
   const bank = document.getElementById('setBank').value.trim();
   const stk = document.getElementById('setStk').value.trim();
@@ -735,14 +866,11 @@ window.addProduct = async () => {
   const icon = document.getElementById('pIcon').value.trim();
   const price = parseInt(document.getElementById('pPrice').value);
   const description = document.getElementById('pDesc').value.trim();
-  const accText = document.getElementById('pAccounts').value.trim();
   if (!name || !price) return window.notif('Nhập tên và giá', true);
-  const accounts = accText.split('\n').map(l => l.trim()).filter(l => l);
-  await push(ref(db, 'products'), { name, image, icon, price, description, accounts, createdAt: Date.now() });
-  window.notif('Đã thêm sản phẩm!');
-  ['pName','pImage','pIcon','pPrice','pDesc','pAccounts'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('imgPreview').style.display = 'none';
-  document.getElementById('uploadStatus').textContent = '';
+  await push(ref(db, 'products'), { name, image, icon, price, description, accounts: [...tempNewProductAccs], createdAt: Date.now() });
+  window.notif('Đã tạo sản phẩm!');
+  tempNewProductAccs = [];
+  renderAdminPanel();
 };
 
 window.deleteProduct = async (id) => {
