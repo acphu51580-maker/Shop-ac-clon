@@ -634,6 +634,7 @@ async function renderAdminPanel(){
       </div>`;
     }).join('');
   } else if(currentAdminTab==='users'){
+    // --- ĐÃ SỬA YÊU CẦU 1: BỎ NÚT +1K VÀ -1K ---
     const list = Object.entries(allUsersCache).filter(([k])=>!k.startsWith('_admin')).map(([id,u])=>({id,...u}));
     c.innerHTML = `
       <input class="search-box" id="userSearch" placeholder="🔍 Tìm user..." oninput="filterUsers()">
@@ -647,8 +648,6 @@ async function renderAdminPanel(){
           <p style="display:none;color:#ef4444" id="pw_${u.id}">🔑 MK: <b>${u.pass||'?'}</b></p>
           <div class="actions">
             <button class="btn-eye" onclick="togglePw('${u.id}')">👁️ MK</button>
-            <button class="btn-plus" onclick="changeBalance('${u.id}',1000)">+1k</button>
-            <button class="btn-minus" onclick="changeBalance('${u.id}',-1000)">-1k</button>
             <button class="btn-plus" onclick="customChangeBalance('${u.id}')">± Tùy</button>
             <button class="btn-minus" onclick="deleteUser('${u.id}','${u.name}')">🗑 Xóa</button>
           </div>
@@ -696,6 +695,7 @@ async function renderAdminPanel(){
           <p style="font-size:11px;color:#6b7280">${new Date(h.time).toLocaleString('vi-VN')}</p>
         </div>`).join('')}`;
   } else if(currentAdminTab==='rankManage'){
+    // --- ĐÃ SỬA YÊU CẦU 2: CHỈ HIỆN USER CÓ TRÊN BẢNG XẾP HẠNG ---
     c.innerHTML = `
       <p style="color:#ffd700;font-weight:700;margin-bottom:10px">🏆 Quản lý xếp hạng</p>
       <div class="deposit-box">
@@ -714,14 +714,24 @@ async function renderAdminPanel(){
       </div>
       <p style="color:#ffd700;font-weight:700;margin:14px 0 10px">🗑 Xóa user khỏi bảng</p>
       <div>
-        ${Object.entries(allUsersCache).filter(([k])=>!k.startsWith('_admin')).map(([id,u])=>`
-          <div class="user-row">
-            <h4>${u.name}</h4>
-            <p>Nạp: ${(u.totalDeposited||0).toLocaleString()}đ | Mua: ${u.totalPurchased||0} acc</p>
-            <div class="actions">
-              <button class="btn-minus" onclick="removeFromRank('${id}')">🗑 Xóa khỏi bảng</button>
-            </div>
-          </div>`).join('')}
+        ${(() => {
+          // Lọc ra chỉ những user đang thực sự có trên bảng xếp hạng (có nạp hoặc mua > 0)
+          const rankedUsers = Object.entries(allUsersCache)
+            .filter(([k, u]) => !k.startsWith('_admin') && ((u.totalDeposited || 0) > 0 || (u.totalPurchased || 0) > 0));
+          
+          if (rankedUsers.length === 0) {
+            return '<div class="empty" style="padding:20px">Không có user nào trên bảng xếp hạng</div>';
+          }
+          
+          return rankedUsers.map(([id, u]) => `
+            <div class="user-row">
+              <h4>${u.name}</h4>
+              <p>Nạp: ${(u.totalDeposited||0).toLocaleString()}đ | Mua: ${u.totalPurchased||0} acc</p>
+              <div class="actions">
+                <button class="btn-minus" onclick="removeFromRank('${id}')">🗑 Xóa khỏi bảng</button>
+              </div>
+            </div>`).join('');
+        })()}
       </div>`;
   } else if(currentAdminTab==='settings'){
     const b = bankInfo;
